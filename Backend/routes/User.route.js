@@ -41,9 +41,9 @@ userRouter.post("/login",async(req,res)=>{
                 if(result){
                     console.log(user)
                     const token=jwt.sign({userID:user[0]._id},"bechef");
-                    const UserNameToken=jwt.sign({userID:user[0].name},"bechef");
-                    const emailToken=jwt.sign({userID:user[0].email},"bechef");
-                    res.send({"msg":"login Success","token":token,"userName":UserNameToken,"email":emailToken});
+                    //const UserNameToken=jwt.sign({userID:user[0].name},"bechef");
+                    // const emailToken=jwt.sign({userID:user[0].email},"bechef");
+                    res.send({"msg":"login Success","token":token,"userName":user[0].name});
                 }else{
                     res.send("wrong cred");
                 }

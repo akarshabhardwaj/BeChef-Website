@@ -3,6 +3,7 @@
 const express=require("express");
 const {connection}=require("./config/db");
 const {userRouter}=require("./routes/User.route");
+const{AdminRoute}=require("./routes/admin.routes")
 
 const {authenticate}=require("./middleware/authenticate.middleware")
 const cors=require("cors")
@@ -21,6 +22,8 @@ app.get("/",(req,res)=>{
 
 app.use("/users",userRouter);
 app.use(authenticate);
+app.use("/admin",AdminRoute)
+
 
 // app.use("",);
 
