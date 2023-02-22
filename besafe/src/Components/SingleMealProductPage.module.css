@@ -63,6 +63,9 @@
     border-radius: 2px;
 }
 
+.cart_box>button:hover{
+    background-color: #f05310;
+}
 
 @media (max-width: 1075px) {
     .small_img{
