@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+.wholeComponent{
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+}
+.navbarText{
+    display: flex;
+    gap: 2rem;
+}
+.navbarText1{
+    display: flex;
+    gap: 1rem;
+}
+.navbarDrawer{
+    display: none;
+}
+@media only screen and (max-width: 950px) {
+    .wholeComponent{
+        justify-content: space-between;
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+    .navbarText{
+        display: none;
+    }
+    .navbarText1{
+        display: none;
+    }
+    .navbarDrawer{
+        display: block;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+}

@@ -1,0 +1,11 @@
+.drawerText{
+    font-weight:700;
+}
+.subDrawer1{
+    padding:1rem;
+    color: #0F346C;
+}
+.subDrawer1:hover{
+    background-color: #0F346C;
+    color: white;
+}

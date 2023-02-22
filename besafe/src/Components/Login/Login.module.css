@@ -1,0 +1,24 @@
+.Login{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 0.2rem;
+    padding-top: 0.2rem;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #e7e7e7;
+    color: #0F346C;
+}
+.Login:hover{
+    background-color: #0f346cc0;
+    color: white;
+}
+.close{
+    color: white;
+    cursor: pointer;
+}
+.close:hover{
+    border-radius: 0 0px 5px 5px;
+    background-color: white;
+    color: #0F346C;
+}
