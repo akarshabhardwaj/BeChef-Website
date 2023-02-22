@@ -1,0 +1,61 @@
+.adjust{
+    display: grid;
+  grid-template-columns: repeat(2,1fr);
+    width: 85%;
+    margin: auto;
+    border: 1px solid black;
+    margin-top: 4%;
+    padding: 2%;
+}
+
+.image{
+    width: 90%;
+}
+
+.top{
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    font-family: "Cera Pro", HelveticaNeue, "Helvetica Neue", HelveticaNeueRoman, HelveticaNeue-Roman, "Helvetica Neue Roman", TeXGyreHerosRegular, Helvetica, Tahoma, Geneva, Arial, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    color:#303236
+}
+
+.des{
+    width: 90%;
+    border: 0px solid green;
+    margin: auto;
+    margin-top: 8%;
+    padding: 2.5%;
+}
+
+ @media  (min-width: 320px) and (max-width: 900px) {
+    .adjust{
+        display: grid;
+      grid-template-columns: repeat(1,1fr);
+        width: 100%;
+        margin: auto;
+        border: 1px solid black;
+        margin-top: 4%;
+        padding: 2%;
+    }
+    .image{
+        width: 100%;
+    }
+}
+
+@media  (min-width: 901px) and (max-width: 1440px) {
+    .adjust{
+        display: grid;
+      grid-template-columns: repeat(2,1fr);
+        width: 100%;
+        margin: auto;
+        border: 1px solid black;
+        margin-top: 4%;
+        padding: 2%;
+    }
+    .image{
+        width: 80%;
+    }
+}
