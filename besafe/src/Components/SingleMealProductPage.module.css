@@ -1,0 +1,109 @@
+/* Defining the style to whole file */
+.container{
+    display: flex;
+    width: 100%;
+    padding: 7%;
+}
+
+/* styling to main big size product image file */
+.product_img{
+    max-width:700px ;
+    text-align: left;
+}
+
+/* styling buttom small product image container */
+.small_img{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    row-gap: 25px;
+    margin-bottom: 25px;
+}
+
+/* styling right side details of product  */
+.product_details{
+    max-width: 580px;
+    margin-left: 3.5%;
+    text-align: left;
+}
+
+/* styling 2nd line subdescription after nme  */
+.highlights{
+    color: rgb(104, 104, 104);
+}
+
+/* styling right side price text */
+.price{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+/* styling right side container of price, qty, addtocart */
+.cart_box{
+    margin: 25px 0 25px 0;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+/* styling right side qty button  */
+.cart_box>select{
+    border: 2px solid rgb(173, 169, 169);
+    width: 52px;
+    height: 35px;
+}
+
+/* styling right side addtocart button  */
+.cart_box>button{
+    background-color: #f26226;
+    color: white;
+    font-size: 14.5px;
+    font-weight: 500;
+    padding: 12px 45px;
+    border-radius: 2px;
+}
+
+
+@media (max-width: 1075px) {
+    .small_img{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .product_details{
+        max-width: 400px;
+    }
+    .cart_box>button{
+        padding: 10px 35px;
+    }
+}
+@media (max-width: 800px) {
+    .container{
+        display: block;
+        justify-content: center;
+    }
+    .product_details{
+       margin: auto;
+    }
+}
+@media (max-width: 470px) {
+    .cart_box>button{
+        padding: 5px 5px;
+    }
+}
+@media (max-width: 400px) {
+    .cart_box>button{
+        font-size: 10px;
+    }
+    .cart_box{
+        margin: 25px 0 25px 0;
+        gap: 10px;
+    }
+}
+@media (max-width: 350px) {
+    .cart_box>button{
+        font-size: 10px;
+    }
+    .cart_box{
+        margin: 25px 0 25px 0;
+        gap: 10px;
+    }
+}
