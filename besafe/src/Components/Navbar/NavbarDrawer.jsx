@@ -8,16 +8,33 @@ import {
     DrawerContent,
     DrawerCloseButton,
     Button,
-    useDisclosure
+    useDisclosure,
+    Avatar,
+    Divider
 } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import { Link } from "react-router-dom"
 import style from "./NavbarDrawer.module.css"
+import Login from '../Login/Login'
+import Signup from '../Signup/Signup'
+import { HiShoppingCart } from 'react-icons/hi';
+import { Icon } from '@chakra-ui/react'
+import { AuthContext } from "../../Context/AuthContextProvider";
+
 
 const NavbarDrawer = () => {
+    const val = React.useContext(AuthContext);
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = React.useRef()
-
+    const [Username, setUsername] = React.useState("");
+    React.useEffect(() => {
+        setUsername(localStorage.getItem("userName"))
+    })
+    const handleSignout = () => {
+        val.handleAuth();
+        localStorage.removeItem("token")
+        localStorage.removeItem("userName")
+      }
     return (
         <>
             <Button ref={btnRef} style={{ color: "#0F346C" }} onClick={onOpen}>
@@ -47,7 +64,7 @@ const NavbarDrawer = () => {
                         <Link to={"/"} >
                             <div className={style.subDrawer1}>
                                 <button className={style.drawerText}>
-                                MEAL KITS
+                                    MEAL KITS
                                 </button>
                             </div>
                         </Link>
@@ -56,7 +73,7 @@ const NavbarDrawer = () => {
                         <Link to={"/"} >
                             <div className={style.subDrawer1}>
                                 <button className={style.drawerText}>
-                                WINE BUNDLES
+                                    WINE BUNDLES
                                 </button>
                             </div>
                         </Link>
@@ -65,7 +82,7 @@ const NavbarDrawer = () => {
                         <Link to={"/"} >
                             <div className={style.subDrawer1}>
                                 <button className={style.drawerText}>
-                                PANTRY
+                                    PANTRY
                                 </button>
                             </div>
                         </Link>
@@ -74,17 +91,29 @@ const NavbarDrawer = () => {
                         <Link to={"/"} >
                             <div className={style.subDrawer1}>
                                 <button className={style.drawerText}>
-                                KITCHEN TOOLS
+                                    KITCHEN TOOLS
                                 </button>
                             </div>
                         </Link>
                     </DrawerBody>
 
-                    <DrawerFooter>
-                        <Button variant='outline' mr={3} style={{ color: "#0F346C" }}>
-                            LOGIN
-                        </Button>
-                        <Button style={{ backgroundColor: "#0F346C", color: "white" }}>SIGNUP</Button>
+                    <DrawerFooter style={{ display: "flex", gap: "1rem" }}>
+                        {val.isAuth === true ? (
+                            <div className={style.navbarText2}>
+                                <div className={style.avatar}>
+                                    <Avatar name={Username} />
+                                    <h1 style={{ marginTop: "0.7rem" }}>{Username}</h1>
+                                    <Divider orientation='vertical' />
+                                </div>
+                                <button onClick={handleSignout} className={style.logout}>LOGOUT</button>
+                                <div className={style.cart}><Link to={"/"}><Icon as={HiShoppingCart} boxSize={10} /></Link></div>
+                            </div>
+                        ) : (
+                            <div className={style.navbarText1}>
+                                <Login />
+                                <Signup />
+                            </div>
+                        )}
                     </DrawerFooter>
                 </DrawerContent>
             </Drawer>
