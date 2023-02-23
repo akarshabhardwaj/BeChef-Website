@@ -1,5 +1,5 @@
 const express = require('express');
-const{WineRoute, WineModel}=require("../models/Wine.model")
+const{ WineModel}=require("../models/Wine.model")
 
 
 const WineRoute=express.Router()
