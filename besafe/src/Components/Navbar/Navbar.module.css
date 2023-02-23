@@ -14,8 +14,38 @@
     display: flex;
     gap: 1rem;
 }
+.navbarText2{
+    display: flex;
+    gap: 1rem;
+}
+.logout{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 0.2rem;
+    padding-top: 0.2rem;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #e7e7e7;
+    color: #0F346C;
+}
+.logout:hover{
+    background-color: #0f346cc0;
+    color: white;
+}
 .navbarDrawer{
     display: none;
+}
+.avatar{
+    display: flex;
+    gap: 0.3rem;
+    margin-top: 14px;
+    margin-bottom: 10px;
+}
+.cart{
+    margin-top: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #0F346C;
 }
 @media only screen and (max-width: 950px) {
     .wholeComponent{
@@ -29,9 +59,15 @@
     .navbarText1{
         display: none;
     }
+    .navbarText2{
+        display: none;
+    }
     .navbarDrawer{
         display: block;
         margin-top: auto;
         margin-bottom: auto;
+    }
+    .cart{
+        display: none;
     }
 }

@@ -19,12 +19,12 @@ userRouter.post("/register",async(req,res)=>{
                 const user=new UserModel({email,pass:secure_password,name})
                 await user.save();
                 console.log(user)
-                res.send("Registered")
+                res.send({"msg":"Registed Successfully"})
             }
         });
     }
     catch(err){
-        res.send("error");
+        res.send({"msg":err.message});
         console.log(err);
     }
 })
@@ -35,25 +35,23 @@ userRouter.post("/login",async(req,res)=>{
     const{email,pass}=req.body;
     try{
         const user=await UserModel.find({email});
-        const hashed_pass=user[0].pass;
         if(user.length>0){
+            const hashed_pass=user[0].pass;
             bcrypt.compare(pass,hashed_pass,(err,result)=>{
                 if(result){
                     console.log(user)
                     const token=jwt.sign({userID:user[0]._id},"bechef");
-                    //const UserNameToken=jwt.sign({userID:user[0].name},"bechef");
-                    // const emailToken=jwt.sign({userID:user[0].email},"bechef");
                     res.send({"msg":"login Success","token":token,"userName":user[0].name});
                 }else{
-                    res.send("wrong cred");
+                    res.send({"msg":"wrong cred"});
                 }
             });
         }
         else{
-            res.send("wrong cred")
+            res.send({"msg":"wrong cred"})
         }
     }catch(err){
-        res.send("Something went wrong")
+        res.send({"msg":err.message})
         console.log(err)
     }
 })
