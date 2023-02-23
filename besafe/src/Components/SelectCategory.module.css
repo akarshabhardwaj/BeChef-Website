@@ -1,0 +1,35 @@
+/* category */
+.category {
+    text-align: left;
+  }
+  .category div img {
+    /* max-width: 200px; */
+    margin: auto;
+    margin-top: 10px;
+  }
+  .category div img:hover {
+    cursor: pointer;
+  }
+  .categoryList {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  @media (max-width: 970px) {
+    .categoryList {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (max-width: 725px) {
+    .categoryList {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .category {
+      text-align: center;
+    }
+  }
+  @media (max-width: 400px) {
+    .categoryList {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
