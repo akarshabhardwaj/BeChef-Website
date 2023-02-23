@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./SingleMealProductPage.module.css";
+import { SocialFooter } from "./SocialFooter";
 import {
   Heading,
   Tab,
@@ -78,6 +79,7 @@ function SingleMealProductPage() {
   // console.log(product);
   return (
     // Main container
+    <>
     <div className={styles.container}>
       {product?.map((items) => (
         <>
@@ -211,6 +213,8 @@ function SingleMealProductPage() {
         </>
       ))}
     </div>
+  <SocialFooter />
+  </>
   );
 }
 
