@@ -5,7 +5,7 @@ const AddProducts = () => {
   return (
     <div>
         <AdminNavbar/>
-        <h1>ADD PRODUCTS</h1>
+        <h1>new add page</h1>
     </div>
   )
 }
