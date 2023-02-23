@@ -1,9 +1,8 @@
 #homebg{
         background-image: url('https://i.ibb.co/ZSzjmJk/desktop-splash-v2.webp');
-        height:100vh;
-        /* margin: 0%; */
-        margin-top:'-70px';
-        font-size:'50px';
+        height: 75vh;
+        /* margin-top:'-70px'; */
+        /* font-size:'50px'; */
         background-size: cover;
         background-repeat: no-repeat
 }
@@ -11,16 +10,34 @@
 #buttonhome1{
     color: white;
     background-color: #0f346c;
-    width: 60%;
+    width: 50%;
     border-radius: 50px;
 }
 
 #buttonhome2{
     color: white;
     background-color: #0f346c;
-    width: 10%;
+    width: 15%;
     margin: 10px;
     border-radius: 50px;
+}
+
+#nameHome{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    color: #0f346c;
+    padding: 5%;
+}
+
+#flexBox{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 40px;
+    flex-direction: row;
 }
 
 
@@ -28,17 +45,22 @@
     font-size: 50px;
 }
 
+
+#weekOption{
+    border:"1px solid red";
+    padding-top: 50px;
+}
+
+
 /* Tablet */
 @media all and (min-width: 425px) and (max-width: 950px){
     #homebg{
-        /* background-image: url("https://i.ibb.co/hyv69rg/mobile-splash-v2.webp"); */
-        margin-top:-70px;
         background: url('https://i.ibb.co/hyv69rg/mobile-splash-v2.webp') no-repeat center center fixed;
         background-size: cover;
         overflow: hidden;
     }
 
-    #homename{
+    #nameHome{
         width: 70%;
         margin: auto;
     }
@@ -58,6 +80,8 @@
 
     #flexBox{
         flex-direction: column;
+        width: 80%;
+        margin: auto;
     }
 
     #buttonhome2{
@@ -68,28 +92,40 @@
 /* Mobile */
 @media all and (min-width: 300px) and (max-width: 425px){
     #homebg{
-        margin-top:-70px;
         background: url('https://i.ibb.co/hyv69rg/mobile-splash-v2.webp') no-repeat center center fixed;
         background-size: cover;
         overflow: hidden;
     }
 
-    #homename{
+    #nameHome{
         width: 70%;
         margin: auto;
     }
-
+    
     #textName{
-        font-size: '30px';
-        margin-left: 0%;
+        margin-top: 10%;
+        font-size: 30px;
+        text-align: center;
     }
 
     #buttonhome1{
         width: 50%;
         margin: auto;
     }
-    
+
+    #members{
+        font-size: 30px;
+    }
+
+    #membersub{
+       width: 90%;
+    }
+
     #flexBox{
         flex-direction: column;
+    }
+
+    #buttonhome2{
+        width: 50%;
     }
 }
