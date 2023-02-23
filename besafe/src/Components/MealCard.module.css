@@ -1,0 +1,18 @@
+.container{
+    text-align: left;
+    max-width: 300px;
+    padding: 10px;
+    /* margin: auto; */
+}
+.container img{
+    width: 280px;
+    margin-bottom: 15px;
+}
+.container img:hover{
+    cursor: pointer;
+}
+.container p{
+    font-size: 16px;
+    color: gray;
+    margin-bottom: 15px;
+}
