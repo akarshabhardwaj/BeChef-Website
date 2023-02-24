@@ -1,7 +1,7 @@
 import React from 'react'
 
 import {
-    Box, Flex, Image, Text
+     Text
 } from "@chakra-ui/react"
 
 
