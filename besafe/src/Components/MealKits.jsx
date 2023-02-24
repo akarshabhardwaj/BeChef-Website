@@ -412,8 +412,8 @@ function MealKits() {
       <div className={styles.sort_filter}>
         <select onClick={(e) => setSortby(e.target.value)}>
           <option value="">Price</option>
-          <option value="lh">Low to high</option>
-          <option value="hl">High to low</option>
+          <option value="lh">Low to High</option>
+          <option value="hl">High to Low</option>
         </select>
       </div>
       <div className={styles.cardContainer}>
