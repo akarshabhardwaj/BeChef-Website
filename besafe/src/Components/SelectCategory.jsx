@@ -14,7 +14,7 @@ function SelectCategory() {
           <Link to="#">
             <img
               src="https://raw.githubusercontent.com/shubhamkr2/UploadImages/main/meal%20kits.webp"
-              alt="image"
+              alt="Meal Kits"
             />
           </Link>
           <Flex>
@@ -43,7 +43,7 @@ function SelectCategory() {
           <Link to="#">
             <img
               src="https://raw.githubusercontent.com/shubhamkr2/UploadImages/main/wine.jpg"
-              alt="image"
+              alt="wine"
             />
           </Link>
           <Flex>
@@ -72,7 +72,7 @@ function SelectCategory() {
           <Link to="#">
             <img
               src="https://raw.githubusercontent.com/shubhamkr2/UploadImages/main/pantry.jpeg"
-              alt="image"
+              alt="pantry"
             />
           </Link>
           <Flex>
@@ -96,12 +96,12 @@ function SelectCategory() {
             />
           </Flex>
         </div>
-        {/* Pantry */}
+        {/* Kitchen */}
         <div>
           <Link to="#">
             <img
               src="https://raw.githubusercontent.com/shubhamkr2/UploadImages/main/kitchen.jpg"
-              alt="image"
+              alt="kitchen"
             />
           </Link>
           <Flex>
