@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import styles from "./MealKits.module.css";
 import { Link } from "react-router-dom";
 import { Heading } from "@chakra-ui/react";
-import { MealCard } from "./MealCard";
-import { SelectCategory } from "./SelectCategory";
-import { SocialFooter } from "./SocialFooter";
+import { MealCard } from "../Components/MealCard";
+import { SelectCategory } from "../Components/SelectCategory";
+import { SocialFooter } from "../Components/SocialFooter";
 
 const mealKits = [
   {
