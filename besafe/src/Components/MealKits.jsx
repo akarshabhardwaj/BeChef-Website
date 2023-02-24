@@ -419,6 +419,7 @@ function MealKits() {
       <div className={styles.cardContainer}>
         {mealKits?.map((meal) => (
           <MealCard
+            id={meal._id}
             image={meal.img[0].subImage}
             title={meal.name}
             desc={meal.subDes}
