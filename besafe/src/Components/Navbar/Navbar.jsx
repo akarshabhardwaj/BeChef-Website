@@ -6,7 +6,7 @@ import NavbarDrawer from "./NavbarDrawer"
 import Login from "../Login/Login"
 import Signup from '../Signup/Signup'
 import { AuthContext } from "../../Context/AuthContextProvider";
-import { Avatar, Divider, Button } from '@chakra-ui/react'
+import { Avatar, Divider } from '@chakra-ui/react'
 import { HiShoppingCart } from 'react-icons/hi';
 import { Icon } from '@chakra-ui/react'
 
