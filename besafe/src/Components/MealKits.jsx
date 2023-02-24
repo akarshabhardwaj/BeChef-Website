@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./MealKits.module.css";
 import { Link } from "react-router-dom";
-import { Flex, Heading, Image } from "@chakra-ui/react";
+import { Heading } from "@chakra-ui/react";
 import { MealCard } from "./MealCard";
 import { SelectCategory } from "./SelectCategory";
 import { SocialFooter } from "./SocialFooter";
