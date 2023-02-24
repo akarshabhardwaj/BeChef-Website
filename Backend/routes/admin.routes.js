@@ -57,7 +57,25 @@ try {
 }
 })
 
-//!pantry get and Post over with authorization
+
+AdminRoute.delete("/pantrydelete/:id",async (req,res)=>{
+    const Id=req.params.id;
+    const token=req.headers.authorization
+    try {
+        if(token==="cheftoken"){
+            await PantryModel.findByIdAndDelete({_id:Id})
+            res.send({"msg":`Successfully Deleted Id:${Id}`})
+        }
+        else
+        {
+res.send({"msg":"Invalid Token"})
+        }
+    } catch (error) {
+        
+    }
+})
+
+//!pantry get and Post and delete over with authorization
 
 //!kitchen work start
 
@@ -97,7 +115,25 @@ AdminRoute.get("/kitchenpro",async (req,res)=>{
         
     }
 })
-//!kitcehn work for get and post over
+
+
+AdminRoute.delete("/kitchendelete/:id",async (req,res)=>{
+    const Id=req.params.id;
+    const token=req.headers.authorization
+    try {
+        if(token==="cheftoken"){
+            await KitchenModel.findByIdAndDelete({_id:Id})
+            res.send({"msg":`Successfully Deleted Id:${Id}`})
+        }
+        else
+        {
+res.send({"msg":"Invalid Token"})
+        }
+    } catch (error) {
+        res.send({"msg":error.message})
+    }
+})
+//!kitcehn work for get and post and delete over
 
 //!wine work start
 
@@ -133,7 +169,25 @@ AdminRoute.get("/winepro",async (req,res)=>{
             res.send({"msg":"Wrong Admin Token"})
         }
     } catch (error) {
-        
+        res.send({"msg":error.message})
+    }
+})
+
+
+AdminRoute.delete("/winedelete/:id",async (req,res)=>{
+    const Id=req.params.id;
+    const token=req.headers.authorization
+    try {
+        if(token==="cheftoken"){
+            await WineModel.findByIdAndDelete({_id:Id})
+            res.send({"msg":`Successfully Deleted Id:${Id}`})
+        }
+        else
+        {
+res.send({"msg":"Invalid Token"})
+        }
+    } catch (error) {
+        res.send({"msg":error.message})
     }
 })
 
@@ -173,7 +227,25 @@ AdminRoute.get("/mealpro",async (req,res)=>{
             res.send({"msg":"Wrong Admin Token"})
         }
     } catch (error) {
-        
+        res.send({"msg":error.message})
+    }
+})
+
+
+AdminRoute.delete("/mealdelete/:id",async (req,res)=>{
+    const Id=req.params.id;
+    const token=req.headers.authorization
+    try {
+        if(token==="cheftoken"){
+            await MealModel.findByIdAndDelete({_id:Id})
+            res.send({"msg":`Successfully Deleted Id:${Id}`})
+        }
+        else
+        {
+res.send({"msg":"Invalid Token"})
+        }
+    } catch (error) {
+        res.send({"msg":error.message})
     }
 })
 
