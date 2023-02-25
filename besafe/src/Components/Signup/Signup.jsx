@@ -24,8 +24,7 @@ const Signup = () => {
     const [details, setDetails] = React.useState({
         name: "",
         email: "",
-        pass: "",
-        admin: true
+        pass: ""
     });
     const [show, setShow] = React.useState(false)
     const handleChange = (e) => {
@@ -33,7 +32,6 @@ const Signup = () => {
         const value = e.target.value;
         setDetails({ ...details, [type]: value });
     }
-    console.log(details)
     const handleClick = () => setShow(!show)
     const handleSubmit = () => {
         console.log("Now start")

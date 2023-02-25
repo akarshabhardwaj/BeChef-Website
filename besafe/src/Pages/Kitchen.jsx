@@ -265,4 +265,4 @@ function Kitchen() {
   );
 }
 
-export { Kitchen };
+export default Kitchen;
