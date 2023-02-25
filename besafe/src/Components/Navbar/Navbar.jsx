@@ -78,27 +78,27 @@ const Navbar = () => {
         </div>
         <div className={style.navbarText}>
           <Link to={"/"} style={{ margin: "auto" }}>
-            <button className={style.navbarText1} style={(onthemenu ? ({ color: "#0F346C", textDecoration: "underline" }) : ({ color: "black" }))} onClick={handleonthemenu}>
+            <button className={style.navbarText1} style={(onthemenu ? ({ color: "#0F346C", textDecoration: "underline",textUnderlineOffset:"15px" }) : ({ color: "black" }))} onClick={handleonthemenu}>
               ON THE MENU
             </button>
           </Link>
           <Link to={"/mealkits"} style={{ margin: "auto" }}>
-            <button className={style.navbarText2} style={(mealkits ? ({ color: "#0F346C", textDecoration: "underline" }) : ({ color: "black" }))} onClick={handlemealkits}>
+            <button className={style.navbarText2} style={(mealkits ? ({ color: "#0F346C", textDecoration: "underline",textUnderlineOffset:"15px" }) : ({ color: "black" }))} onClick={handlemealkits}>
               MEAL KITS
             </button>
           </Link>
           <Link to={"/winebundles"} style={{ margin: "auto" }}>
-            <button className={style.navbarText3} style={(winebundles ? ({ color: "#0F346C", textDecoration: "underline" }) : ({ color: "black" }))} onClick={handlewinebundles}>
+            <button className={style.navbarText3} style={(winebundles ? ({ color: "#0F346C", textDecoration: "underline",textUnderlineOffset:"15px" }) : ({ color: "black" }))} onClick={handlewinebundles}>
               WINE BUNDLES
             </button>
           </Link>
           <Link to={"/pantry"} style={{ margin: "auto" }}>
-            <button className={style.navbarText4} style={(pantry ? ({ color: "#0F346C", textDecoration: "underline" }) : ({ color: "black" }))} onClick={handlepantry}>
+            <button className={style.navbarText4} style={(pantry ? ({ color: "#0F346C", textDecoration: "underline",textUnderlineOffset:"15px" }) : ({ color: "black" }))} onClick={handlepantry}>
               PANTRY
             </button>
           </Link>
           <NavLink to={"/kitchen"} style={{ margin: "auto" }}>
-            <button className={style.navbarText5} style={(kitchentools ? ({ color: "#0F346C", textDecoration: "underline" }) : ({ color: "black" }))} onClick={handlekitchentools}>
+            <button className={style.navbarText5} style={(kitchentools ? ({ color: "#0F346C", textDecoration: "underline",textUnderlineOffset:"15px"}) : ({ color: "black" }))} onClick={handlekitchentools}>
               KITCHEN TOOLS
             </button>
           </NavLink>
@@ -112,7 +112,7 @@ const Navbar = () => {
                 <Divider orientation='vertical' />
               </div>
               <button onClick={handleSignout} className={style.logout}>LOGOUT</button>
-              <div className={style.cart}><Link to={"/"}><Icon as={HiShoppingCart} boxSize={10} /></Link></div>
+              <div className={style.cart}><Link to={"/cart"}><Icon as={HiShoppingCart} boxSize={10} /></Link></div>
             </div>
           ) : (
             <div className={style.navbarText1}>
