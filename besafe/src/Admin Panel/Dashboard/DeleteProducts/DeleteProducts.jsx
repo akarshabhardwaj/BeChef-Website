@@ -65,6 +65,21 @@ then((res)=>setWine(res.msg))
 
 }
 
+const HandleDelete=async (id,cate)=>{
+ if(cate==="meal"){
+  let res=await   fetch(`http://localhost:8080/admin/mealdelete/${id}`,{
+        method:"DELETE",
+        headers:{
+            "Content-tpye":"application/json",
+            Authorization:"cheftoken"
+        }
+    })
+    let response=await res.json()
+    console.log(response)
+ }
+ getData()
+}
+
 useEffect(()=>{
     getData()
 },[])
@@ -76,7 +91,7 @@ useEffect(()=>{
             
         {pantry?.map((el,index)=>{
             return <div  key={el._id}>
-            <DeleteCard {...el}/>
+            <DeleteCard {...el} HandleDelete={HandleDelete} />
             </div>
         })}
         </div>
@@ -85,7 +100,7 @@ useEffect(()=>{
             
         {kitchen?.map((el,index)=>{
             return <div  key={el._id}>
-            <DeleteCard {...el}/>
+            <DeleteCard {...el} HandleDelete={HandleDelete} />
             </div>
         })}
         </div>
@@ -95,7 +110,7 @@ useEffect(()=>{
             
         {meal?.map((el,index)=>{
             return <div  key={el._id}>
-            <DeleteCard {...el}/>
+            <DeleteCard {...el} HandleDelete={HandleDelete} />
             </div>
         })}
         </div>
@@ -105,7 +120,7 @@ useEffect(()=>{
             
         {wine?.map((el,index)=>{
             return <div  key={el._id}>
-            <DeleteCard {...el}/>
+            <DeleteCard {...el} HandleDelete={HandleDelete} />
             </div>
         })}
         </div>
