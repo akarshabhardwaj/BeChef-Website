@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import style from "./Navbar.module.css"
-import { Link } from "react-router-dom"
+import { Link,NavLink} from "react-router-dom"
 import logo from "../Assets/logo.webp"
 import NavbarDrawer from "./NavbarDrawer"
 import Login from "../Login/Login"
@@ -82,26 +82,26 @@ const Navbar = () => {
               ON THE MENU
             </button>
           </Link>
-          <Link to={"/"} style={{ margin: "auto" }}>
+          <Link to={"/mealkits"} style={{ margin: "auto" }}>
             <button className={style.navbarText2} style={(mealkits ? ({ color: "#0F346C", textDecoration: "underline" }) : ({ color: "black" }))} onClick={handlemealkits}>
               MEAL KITS
             </button>
           </Link>
-          <Link to={"/"} style={{ margin: "auto" }}>
+          <Link to={"/winebundles"} style={{ margin: "auto" }}>
             <button className={style.navbarText3} style={(winebundles ? ({ color: "#0F346C", textDecoration: "underline" }) : ({ color: "black" }))} onClick={handlewinebundles}>
               WINE BUNDLES
             </button>
           </Link>
-          <Link to={"/"} style={{ margin: "auto" }}>
+          <Link to={"/pantry"} style={{ margin: "auto" }}>
             <button className={style.navbarText4} style={(pantry ? ({ color: "#0F346C", textDecoration: "underline" }) : ({ color: "black" }))} onClick={handlepantry}>
               PANTRY
             </button>
           </Link>
-          <Link to={"/"} style={{ margin: "auto" }}>
+          <NavLink to={"/kitchen"} style={{ margin: "auto" }}>
             <button className={style.navbarText5} style={(kitchentools ? ({ color: "#0F346C", textDecoration: "underline" }) : ({ color: "black" }))} onClick={handlekitchentools}>
               KITCHEN TOOLS
             </button>
-          </Link>
+          </NavLink>
         </div>
         <div style={{display:"flex",gap:"1rem"}}>
           {val.isAuth === true ? (
