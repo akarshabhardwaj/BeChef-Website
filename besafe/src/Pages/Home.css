@@ -32,7 +32,7 @@
 }
 
 #flexBox{
-    width: 80%;
+    width: 90%;
     margin: auto;
     display: flex;
     justify-content: space-evenly;
@@ -48,9 +48,208 @@
 
 #weekOption{
     border:"1px solid red";
-    padding-top: 50px;
+    padding-top: 40px;
 }
 
+
+#gridDiv{
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 20px;
+}
+
+.text1{
+    color: #0f346c;
+    font-size: "30px";
+    font-weight: bold;
+    padding: 2px;
+}
+
+.text2{
+    color: #6a6d8b;
+    font-size: "20px";
+    font-weight: bold;
+    padding: 2px;
+}
+
+#browseMenu{
+    padding: 10px;
+    border: 1px solid #0f346c;
+    border-radius: 50px;
+    width: 20%;
+    margin: 5px;
+    color: #0f346c;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#history{
+    background-image: url('https://i.ibb.co/QKKQMP0/cooking-pot.webp');
+    height: 100vh;
+    margin-top:50px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#historyImg{
+    width: 40%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#historyQuotes{
+    background-color: white;
+    width: 100%;
+    margin: auto;
+}
+
+#blueline{
+    width: 100px;
+    height: 4px;
+    background-color: #00a0df;
+    margin: 32px auto 29px;
+}
+
+#learnMore{
+    background-image: url('https://media.blueapron.com/assets/registration/homepage/green-field.png?height=400&quality=90');
+    height: 50vh;
+    width: 60%;
+    margin: auto;
+    margin-top:50px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#learnMoreBtn{
+    background-color: white;
+    padding: 1.5%;
+    width: 20%;
+    font-weight: bold;
+    border-radius: 30px;
+    color: #0f346c;
+    margin-top: 30px;
+}
+
+#getKnow{
+    background-image: url('https://media.blueapron.com/assets/registration/homepage/gnocchi-ingredients.webp?height=400&quality=90');
+    height: 70vh;
+    width: 80%;
+    margin: auto;
+    margin-top:50px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#getknowDiv{
+    background-color: white;
+    width: 40%;
+    padding: 2%;
+    margin: auto;
+}
+
+#buttonhome3{
+    color: white;
+    background-color: #0f346c;
+    width: 35%;
+    padding: 2%;
+    margin: 10px;
+    border-radius: 50px;
+}
+
+#bottomDiv{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content:space-between;
+    margin-top: 20px;
+}
+
+#icons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#iconsDiv{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    color: #6a6d8b;
+    font-size: 25px;
+    margin: 2%;
+    padding: 2%;
+    
+}
+
+#blogsDiv{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+#emailsDiv{
+    margin: 5%;
+    display: flex;
+}
+
+#emails{
+    width: 40%;
+    padding-left: 2%;
+    padding-right: 2%;
+    border-left: 1px solid #e4e6eb;
+    border-right: 1px solid #e4e6eb;
+}
+
+#emailInput{
+    width: 100%;
+    border:1px solid grey;
+    padding:2%;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    outline: none;
+}
+
+#goBtn{
+    background-color: #0f346c;
+    padding: 2.5%;
+    width: 30%;
+    font-weight: bold;
+    color: white;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#quotes{
+    font-size: 25px;
+    font-weight: bold;
+    color: #002c9b;
+    text-align: center;
+}
+
+#authors{
+    font-size: 20px;
+    font-weight: bold;
+    color: #002c9b;
+    text-align: center;
+}
 
 /* Tablet */
 @media all and (min-width: 425px) and (max-width: 950px){
@@ -84,10 +283,129 @@
         margin: auto;
     }
 
+    #weekly{
+        font-size: 25px;
+    }
+
     #buttonhome2{
         width: 50%;
     }
+
+
+    #gridDiv{
+        grid-template-columns: repeat(10, 198px);
+        overflow: scroll;
+        justify-content: left;
+    }
+
+    #browseMenu{
+        width: 50%;
+        margin: 5%;
+    }
+
+    #historyQuotes{
+        width: 100%;
+        margin: auto;
+    }
+
+    #celeb10{
+        font-size: 15px;
+    }
+
+    #quotes{
+        font-size: 16px;
+    }
+
+    #authors{
+        font-size: 16px;
+    }
+
+    #history{
+        height: 100vh;
+    }
+
+    #historyImg{
+        width: 80%;
+        margin: auto;
+    }
+
+    #learnMore{
+        width: 80%;
+    }
+
+    #handimg{
+        font-size: 20px;
+    }
+
+    #proudtxt{
+        font-size: 20px;
+    }
+
+    #compText{
+        font-size: 20px;
+    }
+
+    #learnMoreBtn{
+        width: 50%;
+    }
+
+
+    #getKnow{
+        background-image: url("https://media.blueapron.com/assets/registration/ho…ge/gnocchi-ingredients.webp?height=400&quality=90")no-repeat center center fixed;
+        background-size: cover;
+        overflow: hidden;
+    }
+
+    #getknowDiv{
+        width: 80%;
+    }
+
+    #getstart{
+        font-size: 20px;
+    }
+
+
+    #serv{
+        font-size: 20px;
+    }
+
+    #buttonhome3{
+        width: 80%;
+    }
+
+    #bottomDiv{
+        flex-direction: column;
+    }
+
+    #blogsDiv{
+        justify-content: space-evenly;
+    }
+
+    
+    #emails{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-left: none;
+        border-right: none;
+        padding-top: 5%;
+        padding-bottom: 5%;
+        border-top: 1px solid #e4e6eb;
+        border-bottom: 1px solid #e4e6eb;
+    }
+
+    #emailsDiv{
+        width: 50%;
+    }
+
+    #goBtn{
+        width: 30%;
+    }
+
+    
 }
+
 
 /* Mobile */
 @media all and (min-width: 300px) and (max-width: 425px){
@@ -109,7 +427,7 @@
     }
 
     #buttonhome1{
-        width: 50%;
+        width: 80%;
         margin: auto;
     }
 
@@ -128,4 +446,110 @@
     #buttonhome2{
         width: 50%;
     }
+
+    #gridDiv{
+        grid-template-columns: repeat(10, 198px);
+        overflow: scroll;
+        justify-content: left;
+    }
+
+    #browseMenu{
+        width: 80%;
+        margin: 5%;
+    }
+
+    #weekly{
+        font-size: 25px;
+    }
+
+    #historyQuotes{
+        width: 100%;
+        margin: auto;
+    }
+
+    #celeb10{
+        font-size: 15px;
+    }
+
+    #quotes{
+        font-size: 10px;
+    }
+
+    #authors{
+        font-size: 10px;
+    }
+
+    #history{
+        height: 70vh;
+    }
+
+    #historyImg{
+        width: 80%;
+        margin: auto;
+    }
+
+    #learnMore{
+        width: 80%;
+    }
+
+    #handimg{
+        font-size: 20px;
+    }
+
+    #proudtxt{
+        font-size: 20px;
+    }
+
+    #compText{
+        font-size: 20px;
+    }
+
+    #learnMoreBtn{
+        width: 50%;
+    }
+
+
+    #getKnow{
+        background-image: url("https://media.blueapron.com/assets/registration/ho…ge/gnocchi-ingredients.webp?height=400&quality=90")no-repeat center center fixed;
+        background-size: cover;
+        overflow: hidden;
+    }
+
+    #getknowDiv{
+        width: 80%;
+    }
+
+    #getstart{
+        font-size: 20px;
+    }
+
+
+    #serv{
+        font-size: 20px;
+    }
+
+    #buttonhome3{
+        width: 80%;
+    }
+
+    #bottomDiv{
+        flex-direction: column;
+    }
+
+    
+    #emails{
+        width: 100%;
+        border-left: none;
+        border-right: none;
+        padding-top: 5%;
+        padding-bottom: 5%;
+        border-top: 1px solid #e4e6eb;
+        border-bottom: 1px solid #e4e6eb;
+    }
+
+    
+    #goBtn{
+        width: 30%;
+    }
+
 }

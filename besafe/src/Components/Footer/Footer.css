@@ -76,12 +76,25 @@
         height: '100%';
     }
 
-    .firstDiv{
-        flex-direction: column;
-        flex-wrap: wrap;
-        gap: 10px;
-        align-items: center;
+    #imgDiv{
+        display: flex;
+        align-items:center;
         justify-content: center;
+    }
+
+    
+    .firstDiv{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        gap: 20px;
+        
+    }
+
+    .flex{
+        text-align: center;
+        
+        border-top: 1px solid gray;
+        padding-top: 2%;
     }
 
     .footerdetails{

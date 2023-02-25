@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable react/jsx-no-comment-textnodes */
 import React from 'react'
 
 import {
@@ -14,7 +16,8 @@ const Footer = () => {
     <div id='footer'>
         <div className='footerBox'>
             <div className='firstDiv'>
-                <div>
+                <div id='imgDiv'>
+                    {/* // eslint-disable-next-line jsx-a11y/alt-text, jsx-a11y/alt-text */}
                     <img className='imageclass' src={logo}/>
                 </div>
                 <div className='flex'>
