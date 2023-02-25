@@ -1,0 +1,117 @@
+.mainSkeleton{
+    margin: auto;
+    height: fit-content;
+    padding-bottom: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 10px;
+}
+.headCart{
+    display:flex;
+    justify-content: space-around;
+    font-family: Titillium, sans-serif;
+    font-weight: 500;
+    border-radius: 10px 10px 0px 0px;
+    padding: 1rem 0rem;
+    margin: auto;
+    background-color: #eae8e8;
+}
+.bottomCart{
+    display:flex;
+    justify-content:space-around;
+    margin: 2rem 0;
+}
+.box{
+    padding:1rem;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    width: 20%;
+    text-align: center;
+    color: #0F346C;
+    background-color: #eae8e8;
+    border-radius: 10px;
+}
+.headCart1{
+    width: 10%;
+    text-align: center;
+    margin: auto;
+}
+.headCart2{
+    width: 30%;
+    text-align: center;
+    margin: auto;
+}
+.headCart3{
+    width: 20%;
+    text-align: center;
+    margin: auto;
+}
+.headCart4{
+    width: 10%;
+    text-align: center;
+    margin: auto;
+}
+.headCart5{
+    width: 10%;
+    text-align: center;
+    margin: auto;
+}
+.input{
+    padding: 1rem;
+    width: 40vw;
+    border-radius: 10px 0px 0px 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.buttonpromo{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    background-color: #0F346C;
+    color: aliceblue;
+    padding: 1rem;
+    white-space: nowrap;
+    border-radius: 0px 10px 10px 0px;
+}
+.bottomDiscount{
+    display: flex;
+    justify-content:space-between;
+    gap: 2rem;
+    margin: 0 2rem;
+}
+.checkout{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    background-color: #0F346C;
+    color: aliceblue;
+    padding: 1rem;
+    border-radius: 10px;
+}
+.continue{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    background-color: white;
+    color: #0F346C;
+    background-color: #eae8e8;
+    padding: 1rem;
+    white-space: nowrap;
+    border-radius: 10px;
+}
+.continue:hover{
+    color: white;
+    background-color: #0f346c80;
+}
+@media only screen and (max-width: 784px) {
+    .bottomCart{
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .box{
+        width: 70%;
+        margin: auto;
+    }
+    .headCart2{
+        display: none;
+    }
+    .bottomDiscount{
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0rem 1rem 1rem 1rem;
+    }
+    .continue{
+        width: 100%;
+    }
+}
