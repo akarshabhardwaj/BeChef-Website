@@ -10,15 +10,16 @@ import {
 } from '@chakra-ui/react';
 import  React ,{ useState }  from 'react';
 import { Link } from "react-router-dom"
-import AdminAuthContext from '../ContextAdmin/AdminAuthContext';
+import {AuthContext} from '../ContextAdmin/AdminAuthContext';
 
 export default function AdminLogin() {
     const [email, setEmail] = useState("")
     const [pass, setPass] = useState("")
     const [forward, setForward] = useState(false)
-    const val=React.useContext(AdminAuthContext)
+    const val=React.useContext(AuthContext)
 
     const Signin = async () => {
+        console.log("Admin")
         //        // e.preventDefault()
         //         console.log(email,pass)
         //         let res=await fetch(`http://localhost:8080/admin/login`,{
@@ -42,13 +43,15 @@ export default function AdminLogin() {
             }
         }).then(res => res.json())
             .then(res => {
+                console.log(res)
                 if (res.msg !== "wrong cred") {
+                    console.log(res)
                     // localStorage.setItem("userName", res.userName)
                     // localStorage.setItem("token", res.token)
                     if(res.admin==true){
-                    val.handleAuth();
+                        console.log("YOU are admin")
+                        val.handleAuth();
                     }
-                    
                 } else {
                     alert("Error")
                 }

@@ -2,7 +2,10 @@ const express = require('express');
 const{PantryModel}=require("../models/Pantry.model")
 const{KitchenModel}=require("../models/Kitchen.model")
 const{WineModel}=require("../models/Wine.model")
-const{MealModel}=require("../models/Meal.model")
+const{MealModel}=require("../models/Meal.model");
+const { UserModel } = require('../models/User.model');
+const bcrypt = require('bcrypt');
+const jwt=require("jsonwebtoken")
 
 
 const AdminRoute=express.Router()
@@ -24,6 +27,7 @@ AdminRoute.post("/login",async (req,res)=>{
     try{
         const user=await UserModel.find({email});
         if(user.length>0){
+            console.log(user)
             if(user[0].admin){
                 const hashed_pass=user[0].pass;
                 bcrypt.compare(pass,hashed_pass,(err,result)=>{
@@ -104,6 +108,25 @@ res.send({"msg":"Invalid Token"})
     } catch (error) {
         
     }
+})
+
+AdminRoute.patch("/pantryupdate/:id",async (req,res)=>{
+    const Id=req.params.id;
+    res.send(Id)
+//     const payload=req.body
+//     const token=req.headers.authorization
+//     try {
+//         if(token==="cheftoken"){
+//             await PantryModel.findByIdAndDelete({_id:Id})
+//             res.send({"msg":`Successfully Deleted Id:${Id}`})
+//         }
+//         else
+//         {
+// res.send({"msg":"Invalid Token"})
+//         }
+//     } catch (error) {
+        
+//     }
 })
 
 //!pantry get and Post and delete over with authorization

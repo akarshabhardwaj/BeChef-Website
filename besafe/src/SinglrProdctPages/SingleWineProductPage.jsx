@@ -45,7 +45,23 @@ function SingleWineProductPage() {
   fetchData();
 }, [_id]);
 // console.log(product);
+const AddToCart=async (product)=>{
+  let obj={name:product.name,img:product.img,price:product.price,username:localStorage.getItem("userName")}
+  console.log(obj)
+ // console.log(product,localStorage.getItem("userName"))
+  let res=await fetch(`http://localhost:8080/cart/addtocart`,{
+    method:"POST",
+    headers:{
+      Authorization:localStorage.getItem("token"),
+      "Content-type":"application/json"
+    },
+    body:JSON.stringify(obj)
+  })
 
+  let ans=await res.json()
+  console.log(ans)
+  alert(ans.msg)
+}
   return (
     // Main container
     <>
@@ -81,7 +97,7 @@ function SingleWineProductPage() {
                   <option value="4">4</option>
                   <option value="5">5</option>
                 </select>
-                <button>ADD TO BASKET</button>
+                <button onClick={()=>{AddToCart(product)}}>ADD TO BASKET</button>
               </div>
 
               {/****************** Long description ******************/}

@@ -13,11 +13,15 @@ import {
 import { HamburgerIcon } from '@chakra-ui/icons'
 import { Link } from "react-router-dom"
 // import style from "./NavbarDrawer.module.css"
+import {AuthContext} from '../../ContextAdmin/AdminAuthContext';
 
 const Navbar_res = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = React.useRef()
-
+    const val=React.useContext(AuthContext)
+    const logout=(()=>{
+        val.handleAuth();
+    })
     return (
         <>
             <Button ref={btnRef} style={{ color: "#0F346C" }} onClick={onOpen}>
@@ -66,7 +70,7 @@ const Navbar_res = () => {
 
                     <DrawerFooter>
                        
-                        <Button style={{ backgroundColor: "#0F346C", color: "white" }}>LOGOUT</Button>
+                        <Button style={{ backgroundColor: "#0F346C", color: "white" }} onClick={logout}>LOGOUT</Button>
                     </DrawerFooter>
                 </DrawerContent>
             </Drawer>

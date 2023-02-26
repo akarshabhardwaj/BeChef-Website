@@ -9,6 +9,7 @@ import AdminLogin from '../Admin Panel/Login/AdminLogin'
 // import PrivateRoute from "../Components/PrivateRoute"
 
 import PrivateRoute from "./PrivateRoute/PrivateRoute"
+import PrivateAdminRoute from '../Admin Panel/AdminRoutes/PrivateAdminRoute'
 
 import Home from "../Pages/Home"
 import Kitchen from "../Pages/Kitchen"
@@ -28,7 +29,11 @@ const AllRoutes = () => {
 
      
       <Route path="/adminlogin" element={<AdminLogin/>} />
-      <Route path="/admin" element={<AllProducts/>} />
+      <Route path="/admin" element={
+        <PrivateAdminRoute>
+          <AllProducts/>
+        </PrivateAdminRoute>
+      } />
       <Route path='/add' element={<AddProducts/>}/>
     <Route path='/update' element={<UpdateProduct/>}/>
     <Route path='/delete' element={<DeleteProducts/>}/>
