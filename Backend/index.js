@@ -10,7 +10,8 @@ const{MealRoute}=require("./routes/Meal.route")
 const{WineRoute}=require("./routes/Wine.route")
 
 const {authenticate}=require("./middleware/authenticate.middleware")
-const cors=require("cors")
+const cors=require("cors");
+const { CartRoute } = require("./routes/cart.route");
 require("dotenv").config()
 
 const app=express();
@@ -24,13 +25,14 @@ app.get("/",(req,res)=>{
     res.send("Home page")
 })
 app.use("/users",userRouter);
-app.use("/kitchen",KitchenRoute)
-app.use(authenticate);
 app.use("/admin",AdminRoute)
+app.use(authenticate);
+app.use("/kitchen",KitchenRoute)
 app.use("/meals",MealRoute)
 app.use("/wines",WineRoute)
 app.use("/pantry",PantryRoute)
 app.use("/kitchen",KitchenRoute)
+app.use("/cart",CartRoute)
 
 
 

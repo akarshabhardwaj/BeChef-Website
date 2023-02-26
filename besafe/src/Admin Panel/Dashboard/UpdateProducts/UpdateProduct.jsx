@@ -70,8 +70,8 @@ const HandleUpdate=async (id,cate)=>{
     console.log(id,cate)
 
  if(cate==="meal"){
-  let res=await   fetch(`http://localhost:8080/admin/mealdelete/${id}`,{
-        method:"UPDATE",
+  let res=await   fetch(`http://localhost:8080/admin/mealupdate/${id}`,{
+        method:"PATCH",
         headers:{
             "Content-tpye":"application/json",
             Authorization:"cheftoken"
@@ -83,7 +83,7 @@ const HandleUpdate=async (id,cate)=>{
     alert(response.msg)
  }else if(cate==="pantry"){
     let res=await   fetch(`http://localhost:8080/admin/pantryupdate/${id}`,{
-        method:"UPDATE",
+        method:"PATCH",
         headers:{
             "Content-tpye":"application/json",
             Authorization:"cheftoken"
@@ -96,7 +96,7 @@ const HandleUpdate=async (id,cate)=>{
  }
  else if(cate==="kitchen"){
     let res=await   fetch(`http://localhost:8080/admin/kitchenupdate/${id}`,{
-        method:"UPDATE",
+        method:"PATCH",
         headers:{
             "Content-tpye":"application/json",
             Authorization:"cheftoken"
@@ -110,7 +110,7 @@ const HandleUpdate=async (id,cate)=>{
  else if(cate==="wine"){
     console.log("wine")
     let res=await   fetch(`http://localhost:8080/admin/wineupdate/${id}`,{
-        method:"UPDATE",
+        method:"PATCH",
         headers:{
             "Content-tpye":"application/json",
             Authorization:"cheftoken"
