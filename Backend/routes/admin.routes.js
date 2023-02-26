@@ -24,6 +24,7 @@ AdminRoute.post("/login",async (req,res)=>{
     //     res.send({"msg":"Unauthorised Admin"})
     // }
     const{email,pass}=req.body;
+
     try{
         const user=await UserModel.find({email});
         if(user.length>0){
@@ -112,22 +113,12 @@ res.send({"msg":"Invalid Token"})
 
 AdminRoute.patch("/pantryupdate/:id",async (req,res)=>{
     const Id=req.params.id;
-    // console.log(req.body)
+    console.log(req.body,Id)
     // res.send(Id)
     const payload=req.body
-    const token=req.headers.authorization
-    try {
-        if(token==="cheftoken"){
-            await PantryModel.findByIdAndUpdate({_id:Id},payload)
-            res.send({"msg":`Successfully updated Id:${Id}`})
-        }
-        else
-        {
-res.send({"msg":"Invalid Token"})
-        }
-    } catch (error) {
-        
-    }
+    // const token=req.headers.authorization
+    await PantryModel.findByIdAndUpdate({_id:Id},payload)
+    res.send({"msg":`Successfully updated Id:${Id}`})
 })
 
 //!pantry get and Post and delete over with authorization
@@ -195,19 +186,9 @@ AdminRoute.patch("/kitchenupdate/:id",async (req,res)=>{
     // console.log(req.body)
     // res.send(Id)
     const payload=req.body
-    const token=req.headers.authorization
-    try {
-        if(token==="cheftoken"){
-            await KitchenModel.findByIdAndUpdate({_id:Id},payload)
-            res.send({"msg":`Successfully updated Id:${Id}`})
-        }
-        else
-        {
-res.send({"msg":"Invalid Token"})
-        }
-    } catch (error) {
-        
-    }
+    await KitchenModel.findByIdAndUpdate({_id:Id},payload)
+    res.send({"msg":`Successfully updated Id:${Id}`})
+  
 })
 //!kitcehn work for get and post and delete over
 
@@ -272,19 +253,10 @@ AdminRoute.patch("/wineupdate/:id",async (req,res)=>{
     // console.log(req.body)
     // res.send(Id)
     const payload=req.body
-    const token=req.headers.authorization
-    try {
-        if(token==="cheftoken"){
-            await WineModel.findByIdAndUpdate({_id:Id},payload)
-            res.send({"msg":`Successfully updated Id:${Id}`})
-        }
-        else
-        {
-res.send({"msg":"Invalid Token"})
-        }
-    } catch (error) {
-        
-    }
+
+    await WineModel.findByIdAndUpdate({_id:Id},payload)
+    res.send({"msg":`Successfully updated Id:${Id}`})
+  
 })
 
 //!wine work over get and post
@@ -350,19 +322,9 @@ AdminRoute.patch("/mealupdate/:id",async (req,res)=>{
     // console.log(req.body)
     // res.send(Id)
     const payload=req.body
-    const token=req.headers.authorization
-    try {
-        if(token==="cheftoken"){
-            await MealModel.findByIdAndUpdate({_id:Id},payload)
-            res.send({"msg":`Successfully updated Id:${Id}`})
-        }
-        else
-        {
-res.send({"msg":"Invalid Token"})
-        }
-    } catch (error) {
-        
-    }
+    await MealModel.findByIdAndUpdate({_id:Id},payload)
+    res.send({"msg":`Successfully updated Id:${Id}`})
+    
 })
 
 //!get and post for meals complete
