@@ -5,7 +5,8 @@ const mongoose=require("mongoose");
 const userSchema=mongoose.Schema({
     email:String,
     pass:String,
-    name:String
+    name:String,
+    admin:Boolean
 })
 
 const UserModel=mongoose.model("user",userSchema);

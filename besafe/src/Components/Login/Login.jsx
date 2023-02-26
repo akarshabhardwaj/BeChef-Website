@@ -19,6 +19,7 @@ import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
 import { MdPassword, MdEmail } from 'react-icons/md';
 import { AuthContext } from "../../Context/AuthContextProvider";
 import { Link } from 'react-router-dom';
+import AdminLogin from '../../Admin Panel/Login/AdminLogin';
 
 const Login = () => {
     const val = React.useContext(AuthContext);
@@ -102,10 +103,14 @@ const Login = () => {
                         </div>
                         <br />
                         <div style={{ display: "flex", justifyContent: "center" }}>
-                            <Link to={"/"}>
-                                <Button mr={3} onClick={() => handleSubmit()}>Admin Login</Button>
+                            <Link to={"/adminlogin"}>
+                                <Button mr={3} onClick={onClose} >Admin Login</Button>
                             </Link>
                         </div>
+                        {/* <div onClick={onClose}>
+                        <AdminLogin/>
+                        </div> */}
+                        
                     </ModalBody>
                     <hr />
                     <ModalFooter className={style.close} style={{ display: "flex", justifyContent: "center", paddingLeft: "1rem" }} onClick={onClose}>
