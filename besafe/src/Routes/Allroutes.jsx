@@ -9,10 +9,18 @@ import { WineBundles } from "../Pages/WineBundles"
 import Cart from "../Pages/Cart"
 import Login from "../Components/Login/Login"
 
+import Address from '../Pages/address'
+import Payment from '../Pages/Payment'
+import OnTheMenu from '../Pages/OnTheMenu'
+
 const AllRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path='/address' element={<Address/>}/>
+      <Route path='/payment' element={<Payment/>}/>
+      <Route path='/onMenu' element={<OnTheMenu/>}/>
+
       <Route path="/kitchen" element={
         <PrivateRoute>
           <Kitchen />

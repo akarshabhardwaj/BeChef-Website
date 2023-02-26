@@ -7,26 +7,22 @@ import AdminRoutes from './Admin Panel/AdminRoutes/AdminRoutes';
 
 
 
-
-
-
 import Cart from './Pages/Cart';
 import AllRoutes from './Routes/Allroutes';
 
 
 function App() {
+  
   return (
     <div className="App">
 
       {/* <Navbar/>
       <Home/>
       <Footer/> */}
-   <AdminRoutes/>
+      <AdminRoutes/>
 
       <Navbar/>
       <AllRoutes/>
-      {/* <Home/> */}
-      {/* <Cart/> */}
       <Footer/>
 
     </div>
