@@ -1,27 +1,75 @@
-import React from "react";
-import { Button, Divider, Icon, Image, Text } from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
+import { Button, Divider, Icon, Image, Spinner, Text } from "@chakra-ui/react";
 import { RxCross2 } from "react-icons/rx";
 import style from "./Cartitem.module.css";
 
+import {
+  cartActions,
+  cartValue,
+  deleteCartItem,
+  updateCarts,
+} from "../../Redux/Cart/Cart.actions";
+
+import { useDispatch, useSelector } from "react-redux";
+
 const CartItem = ({ items }) => {
+  const dispatch = useDispatch();
+  const {loading , error, cartData,totalPrice} = useSelector((store) => store.cart);
+  console.log('cartData:', cartData)
+
+
+  
+  
   const [count, setCount] = React.useState(1);
   const [price, setPrice] = React.useState(items.price);
+  
 
-  const handleRemove = () => {
-    
-  };
+const inc = (id,qty) => {
+  // console.log('id:', id)
+  // console.log('qty:', qty)
+  // let qtyIn = qty+1;
+  // console.log('qtyIn:', qtyIn)
+  dispatch(updateCarts(id,{"qty":qty+1}))
+  .then(()=> {
+    dispatch(cartActions());
+  });
+}
 
-  const inc = () => {
-    const inc=parseFloat((price + items.price).toFixed(2))
-    setPrice(inc);
-    setCount(count + 1);
-  };
+const dec = async(id,qty) => {
+  dispatch(updateCarts(id,{"qty":qty-1})).then(()=> {
+    dispatch(cartActions());
+  });
+}
 
-  const dec = () => {
-    const dec=parseFloat((price - items.price).toFixed(2))
-    setPrice(dec);
-    setCount(count - 1);
-  };
+
+  // const handleRemove = async(id) => {
+  //   try {
+  //     const res = await fetch(`http://localhost:8080/cart/items/${id}`,{
+  //         method:"DELETE",
+  //         headers:{
+  //           "Content-Type":"application/json"
+  //         }
+  //     });
+  //       const cartData = await res.json();
+  //       console.log('cartData:', cartData.msg) 
+  //   } catch (error) {
+  //       console.log("error cart:-", error);
+  //   }
+  // };
+
+  // const inc = () => {
+  //   console.log("inc")
+  //   const inc=parseFloat((price + items.price).toFixed(2))
+  //   setPrice(inc);
+  //   setCount(count + 1);
+  // };
+
+  // const countDec = () => {
+  //   const dec=parseFloat((price - items.price).toFixed(2))
+  //   setPrice(dec);
+  //   setCount(count - 1);
+  // };
+
   return (
     <div className={style.item}>
       <div key={items._id} className={style.subitem}>
@@ -41,19 +89,21 @@ const CartItem = ({ items }) => {
         </div>
         <div className={style.quantity}>
           <div className={style.quantityInner}>
-            <Button isDisabled={count === 1} onClick={() => dec()}>
+            <Button isDisabled={items.qty === 1} onClick={()=> dec(items._id,items.qty)}>
               -
             </Button>
             <Button isDisabled fontSize={20}>
-              {count}
+            { loading ? <Spinner/> : items.qty}
             </Button>
-            <Button isDisabled={count === 5} onClick={() => inc()}>
+            <Button onClick={() => inc(items._id,items.qty)}>
               +
             </Button>
           </div>
         </div>
         <div className={style.remove}>
-          <Button onClick={handleRemove}>
+          <Button onClick={()=>{
+                      dispatch(deleteCartItem(items._id)).then(()=> dispatch(cartActions()));
+                      }}>
             <Icon as={RxCross2} />
           </Button>
         </div>
@@ -65,7 +115,7 @@ const CartItem = ({ items }) => {
             paddingTop: "0.5rem",
           }}
         >
-          <h1>{price}</h1>
+          <h1>{(items.price*items.qty).toFixed(2)}</h1>
         </div>
       </div>
       <Divider />

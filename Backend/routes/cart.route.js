@@ -17,14 +17,33 @@ CartRoute.get("/items",async (req,res)=>{
 
 
 CartRoute.post("/addtocart",async (req,res)=>{
-    let item=req.body;
+    let {name,img,price,username}=req.body;
     try {
-        const newitem=new CartModel(item)
+        const newitem=new CartModel({name,img,price,username,qty:1})
         newitem.save()
         res.send({"msg":"Successfully Added"})
     } catch (error) {
         res.send({"msg":error.message}) 
     }
+})
+
+CartRoute.patch("/update/:id",async(req,res)=>{
+    const payload=req.body;
+    console.log(payload,"HEllo");
+    const id=req.params.id;
+    // const post=await postModel.find({"_id":id})
+    try{
+        await CartModel.findByIdAndUpdate({"_id":id},payload)
+        res.send("Successfully patched")
+    }catch(err){
+        console.log(err)
+    }
+})
+
+CartRoute.delete("/delete/:id",async(req,res)=>{
+    const ID =  req.params.id;
+    await CartModel.findByIdAndDelete({"_id":ID});
+    res.send({"msg":`note deleted with ${ID}`})
 })
 
 
