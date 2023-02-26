@@ -4,8 +4,9 @@ const mongoose = require('mongoose');
 const CartSchema=mongoose.Schema({
     name:String,
     img:Array,
-    price:String,
-    username:String
+    price:Number,
+    username:String,
+    qty:Number
 })
 
 

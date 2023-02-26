@@ -12,6 +12,7 @@ import {
   import { Box, Heading, Spacer, Text } from "@chakra-ui/react";
 
   import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 //   import { useSelector } from "react-redux";
 
@@ -27,7 +28,7 @@ import {
   };
   
   const Payment = () => {
-    // const totalAmount = useSelector((store) => store.cart.totalPrice);
+    const totalAmount = useSelector((store) => store.cart.totalPrice);
     const [details, setDetails] = useState(initDetails);
     const navigate = useNavigate();
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -43,8 +44,8 @@ import {
   
     return (
       <div>
-        <Heading color={'#0f346c'}>Enter you Credit Card details</Heading><br />
-        <Text fontSize={20}>Total Amount will be deduct ₹ totalAmount </Text><br />
+        <Heading color={'#002c9b'}>Enter you Credit Card details</Heading><br />
+        <Text  fontSize={"20px"}>Total Amount will be deduct <Text as={"span"} fontSize={"20px"} fontWeight="bold" color='#002c9b'> ${totalAmount} </Text></Text><br />
         <Box>
           <Spacer h="100" />
           <div

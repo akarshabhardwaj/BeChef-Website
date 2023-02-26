@@ -45,8 +45,12 @@ const AllRoutes = () => {
       <Route path="/" element={<Home />} />
       <Route path='/address' element={<Address/>}/>
       <Route path='/payment' element={<Payment/>}/>
-      <Route path='/onMenu' element={<OnTheMenu/>}/>
-
+      {/* <Route path='/onMenu' element={<OnTheMenu/>}/> */}
+      <Route path="/onMenu" element={
+        <PrivateRoute>
+          <OnTheMenu />
+        </PrivateRoute>
+      } />
       <Route path="/kitchen" element={
         <PrivateRoute>
           <Kitchen />

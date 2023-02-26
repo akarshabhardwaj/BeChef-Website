@@ -14,15 +14,15 @@ function OnTheMenu() {
 
     // const getOnMenuData =async () => {
     //     setLoading(true);
-    //     try {
-    //         const res = await fetch("https://lackadaisical-volcano-larch.glitch.me/data");
-    //         const menuData = await res.json();
-    //         setData(menuData);  
-    //         setLoading(false);
-    //     } catch (error) {
-    //         // console.log("e", error);
-    //         setLoading(false);
-    //     }
+        // try {
+        //     const res = await fetch("https://lackadaisical-volcano-larch.glitch.me/data");
+        //     const menuData = await res.json();
+        //     setData(menuData);  
+        //     setLoading(false);
+        // } catch (error) {
+        //     // console.log("e", error);
+        //     setLoading(false);
+        // }
     // }
 
     // useEffect(() => {
