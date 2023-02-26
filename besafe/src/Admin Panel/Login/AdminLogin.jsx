@@ -8,7 +8,7 @@ import {
     Stack,
     useColorModeValue,
 } from '@chakra-ui/react';
-import { useState } from 'react';
+import  React ,{ useState }  from 'react';
 import { Link } from "react-router-dom"
 import AdminAuthContext from '../ContextAdmin/AdminAuthContext';
 
@@ -16,7 +16,7 @@ export default function AdminLogin() {
     const [email, setEmail] = useState("")
     const [pass, setPass] = useState("")
     const [forward, setForward] = useState(false)
-
+    const val=React.useContext(AdminAuthContext)
 
     const Signin = async () => {
         //        // e.preventDefault()
