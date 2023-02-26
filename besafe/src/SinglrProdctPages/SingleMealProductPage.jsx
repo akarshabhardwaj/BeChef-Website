@@ -61,11 +61,24 @@ function SingleMealProductPage() {
     onOpen();
     setModalImg(imgLink);
   }
-
-
   const toast = useToast()
-  const addToBasket = ()=>{
-    
+
+  const AddToCart=async (product)=>{
+    let obj={name:product.name,img:product.img,price:product.price,username:localStorage.getItem("userName")}
+    console.log(obj)
+   // console.log(product,localStorage.getItem("userName"))
+    let res=await fetch(`https://dark-red-goshawk-gown.cyclic.app/cart/addtocart`,{
+      method:"POST",
+      headers:{
+        Authorization:localStorage.getItem("token"),
+        "Content-type":"application/json"
+      },
+      body:JSON.stringify(obj)
+    })
+  
+    let ans=await res.json()
+    console.log(ans)
+    // alert(ans.msg)
     toast({
       title: "Add to Basket",
       description: "You Can See Cart Now",
@@ -76,6 +89,20 @@ function SingleMealProductPage() {
       isClosable: true,
     })
   }
+
+  //
+  // const addToBasket = ()=>{
+    
+  //   toast({
+  //     title: "Add to Basket",
+  //     description: "You Can See Cart Now",
+  //     variant: "subtle",
+  //     status:'success',
+  //     position: 'top-right',
+  //     duration: 3000,
+  //     isClosable: true,
+  //   })
+  // }
 
   // console.log(product);
 
@@ -147,37 +174,21 @@ function SingleMealProductPage() {
                   Price $<span>{product?.price}</span>
                 </span>
               </p>
-              <select onChange={(e) => setQty(e.target.value)}>
+              {/* <select onChange={(e) => setQty(e.target.value)}>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
-              </select>
-              <button onClick={addToBasket}>ADD TO BASKET</button>
+              </select> */}
+              <button onClick={()=>{AddToCart(product)}}>ADD TO BASKET</button>
             </div>
 
                 {/* Showing Sub description after name */}
                 <p className={styles.highlights}>{product?.subDes}</p>
               </div>
 
-              {/******************** To show price, qty, addtocart btn ***********************/}
-              <div className={styles.cart_box}>
-                <p className={styles.price}>
-                  <span>
-                    Price $<span>{product?.price}</span>
-                  </span>
-                </p>
-                <select onChange={(e) => setQty(e.target.value)}>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
-                <button>ADD TO BASKET</button>
-              </div>
-
+             
               {/****************** Long description ******************/}
               <div className={styles.description}>
                 <p>{product?.des}</p>

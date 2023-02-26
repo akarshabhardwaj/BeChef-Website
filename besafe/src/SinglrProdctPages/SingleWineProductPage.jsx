@@ -50,7 +50,7 @@ const AddToCart=async (product)=>{
   let obj={name:product.name,img:product.img,price:product.price,username:localStorage.getItem("userName")}
   console.log(obj)
  // console.log(product,localStorage.getItem("userName"))
-  let res=await fetch(`http://localhost:8080/cart/addtocart`,{
+  let res=await fetch(`https://dark-red-goshawk-gown.cyclic.app/cart/addtocart`,{
     method:"POST",
     headers:{
       Authorization:localStorage.getItem("token"),
@@ -100,13 +100,13 @@ const AddToCart=async (product)=>{
                     Price $<span>{product?.price}</span>
                   </span>
                 </p>
-                <select onChange={(e) => setQty(e.target.value)}>
+                {/* <select onChange={(e) => setQty(e.target.value)}>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
                   <option value="4">4</option>
                   <option value="5">5</option>
-                </select>
+                </select> */}
                 <button onClick={()=>{AddToCart(product)}}>ADD TO BASKET</button>
               </div>
 

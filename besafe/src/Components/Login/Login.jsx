@@ -37,6 +37,7 @@ const Login = () => {
     }
     const handleSubmit = () => {
         console.log(details);
+        
         fetch("https://dark-red-goshawk-gown.cyclic.app/users/login", {
             method: "POST",
             body: JSON.stringify(details),

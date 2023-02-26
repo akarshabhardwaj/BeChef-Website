@@ -36,7 +36,7 @@ const Signup = () => {
     const handleSubmit = () => {
         console.log("Now start")
         console.log(details)
-        fetch("http://localhost:8080/users/register",{
+        fetch("https://dark-red-goshawk-gown.cyclic.app/users/register",{
           method:"POST",
           body:JSON.stringify(details),
           headers:{

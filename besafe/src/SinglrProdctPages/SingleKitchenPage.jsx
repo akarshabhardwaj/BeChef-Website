@@ -36,8 +36,23 @@ const SingleKitchen = () => {
   console.log(kitchen);
 
   const toast = useToast()
+
+  const AddToCart=async (product)=>{
+    let obj={name:product.name,img:product.img,price:product.price,username:localStorage.getItem("userName")}
+    console.log(obj)
+   // console.log(product,localStorage.getItem("userName"))
+    let res=await fetch(`https://dark-red-goshawk-gown.cyclic.app/cart/addtocart`,{
+      method:"POST",
+      headers:{
+        Authorization:localStorage.getItem("token"),
+        "Content-type":"application/json"
+      },
+      body:JSON.stringify(obj)
+    })
   
-  const addToBasket = ()=>{
+    let ans=await res.json()
+    console.log(ans)
+    // alert(ans.msg)
     toast({
       title: "Add to Basket",
       description: "You Can See Cart Now",
@@ -62,11 +77,11 @@ const SingleKitchen = () => {
         <h2>{kitchen?.name}</h2>
         <div className={Styles.top}>
           <h2>Price ${kitchen?.price}</h2>
-          <input
+          {/* <input
             type="number"
             value={quan}
             style={{ width: "7%", height: "auto", textAlign: "center" }}
-          />
+          /> */}
           <button
             style={{
               backgroundColor: "#f26226",
@@ -78,7 +93,7 @@ const SingleKitchen = () => {
               height: "auto",
               borderRadius: "3px",
             }}
-            onClick={()=>addToBasket}
+            onClick={()=>{AddToCart(kitchen)}}
             >
             ADD TO BASKET
           </button>
