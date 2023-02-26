@@ -32,21 +32,34 @@ const SinglePantry = () => {
         };
         fetchData();
       }, [_id]);
-    //   console.log(pantry);
 
-    const toast = useToast()
-  const addToBasket = ()=>{
-    
-    toast({
-      title: "Add to Basket",
-      description: "You Can See Cart Now",
-      variant: "subtle",
-      status:'success',
-      position: 'top-right',
-      duration: 3000,
-      isClosable: true,
-    })
-  }
+      const toast = useToast()
+      const AddToCart=async (product)=>{
+        let obj={name:product.name,img:product.img,price:product.price,username:localStorage.getItem("userName")}
+        console.log(obj)
+       // console.log(product,localStorage.getItem("userName"))
+        let res=await fetch(`https://dark-red-goshawk-gown.cyclic.app/cart/addtocart`,{
+          method:"POST",
+          headers:{
+            Authorization:localStorage.getItem("token"),
+            "Content-type":"application/json"
+          },
+          body:JSON.stringify(obj)
+        })
+      
+        let ans=await res.json()
+        console.log(ans)
+        // alert(ans.msg)
+        toast({
+          title: "Add to Basket",
+          description: "You Can See Cart Now",
+          variant: "subtle",
+          status:'success',
+          position: 'top-right',
+          duration: 3000,
+          isClosable: true,
+        })
+      }
     return (
         <div className={Styles.adjust}> 
             <div>
@@ -57,8 +70,8 @@ const SinglePantry = () => {
                <div className={Styles.top}>
                 
                <h2>Price ${pantry?.price}</h2>
-              <h3>{quan}</h3>
-             <button style={{backgroundColor:"#f26226",width:"25%",padding:"2px",border:"0px",color:"white",textAlign:"center",height:"auto",borderRadius:"3px"}} onClick={addToBasket}>ADD TO BASKET</button>
+              {/* <h3>{quan}</h3> */}
+             <button style={{backgroundColor:"#f26226",width:"25%",padding:"2px",border:"0px",color:"white",textAlign:"center",height:"auto",borderRadius:"3px"}}  onClick={()=>{AddToCart(pantry)}}>ADD TO BASKET</button>
                </div>
             <div className={Styles.des}>
                 <h3>Description</h3>

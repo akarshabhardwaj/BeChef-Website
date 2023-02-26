@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const getCartAPI = async() => {
-    let res =  await fetch("http://localhost:8080/cart/items",{
+    let res =  await fetch("https://dark-red-goshawk-gown.cyclic.app/cart/items",{
             method:"GET",
             headers :{
                 Authorization:localStorage.getItem("token"),
@@ -20,7 +20,7 @@ export const getCartAPI = async() => {
 
 export const updateCart =  async(id,newValue) => {
     // return axios.patch(`http://localhost:8080/cart/items/update/${id}`,newValue);
-    let res =  await fetch(`http://localhost:8080/cart/update/${id}`,{
+    let res =  await fetch(`https://dark-red-goshawk-gown.cyclic.app/cart/update/${id}`,{
             method:"PATCH",
             headers :{
                 Authorization:localStorage.getItem("token"),
@@ -39,7 +39,7 @@ export const updateCart =  async(id,newValue) => {
 
 export const deleteCart = async(id) => {
         try{
-            let res =  await fetch(`http://localhost:8080/cart/delete/${id}`,{
+            let res =  await fetch(`https://dark-red-goshawk-gown.cyclic.app/cart/delete/${id}`,{
                 method:"DELETE",
                 headers:{
                     Authorization:localStorage.getItem("token"),

@@ -66,7 +66,7 @@ const Index = () => {
     const updatePrice = () => {
         setTotalCartPrice(
           cartData.reduce(
-            (acc, el) => parseFloat(((acc + el.price)*el.qty+144).toFixed(2)),0)  
+            (acc, el) => parseFloat((((acc + el.price)*el.qty)).toFixed(2)),0)  
         );
           
     }
@@ -74,11 +74,9 @@ const Index = () => {
 
    const [apply,setApply] = useState("");
    const offerClick = () => {
-    //  console.log('val:', totalCartPrice)
-    //  console.log("Apply text",apply);
      if(apply === "Bechef30"){
         setTotalCartPrice(cartData.reduce(
-        (acc, el) => parseFloat((((acc + el.price)*el.qty+144)*70/100).toFixed(2)),
+        (acc, el) => parseFloat(((((acc + el.price)*el.qty)+144)*70/100).toFixed(2)),
         0
         ));
 
@@ -142,7 +140,7 @@ const Index = () => {
                     <div className={style.box}>Discount: $ {discount}</div>
                     <div className={style.box}>Delivery: $ 144</div>
                     {/* <div className={style.box}>Subtotal: $ {subTotal}</div> */}
-                    <div className={style.box}>Total: $ {totalCartPrice}</div>
+                    <div className={style.box}>Total: $ {totalCartPrice+144}</div>
                 </div>
 
                 <div className={style.bottomDiscount}>
