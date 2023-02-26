@@ -64,7 +64,7 @@ const Index = () => {
                         </div>
                     </div>
                     <div style={{ display: "flex", gap: "0.5rem" }}>
-                        <Link to={"/"}>
+                        <Link to={"/address"}>
                             <button className={style.checkout}>Checkout</button>
                         </Link>
                         <Link to={"/"}>

@@ -9,18 +9,11 @@ import AllRoutes from './Routes/Allroutes';
 
 
 function App() {
+  
   return (
     <div className="App">
-
-      {/* <Navbar/>
-      <Home/>
-      <Footer/> */}
-   
-
       <Navbar/>
       <AllRoutes/>
-      {/* <Home/> */}
-      {/* <Cart/><AdminRoutes/> */}
       <Footer/>
 
     </div>

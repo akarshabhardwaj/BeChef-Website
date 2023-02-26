@@ -1,0 +1,28 @@
+#heading {
+    font-family: Chronicle Deck,Times,serif;
+    color: #002c9b;
+    font-size: 40px;
+    margin: 1%;
+}
+
+#onTheMenuDiv{
+    width:'80%';
+    margin:'auto';
+    display:'flex';
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:'20px';
+}
+
+#typeDiv{
+    display: flex;
+    width: 50%;
+    /* margin: auto; */
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    font-size: 25px;
+    color: #52c3f4;
+}

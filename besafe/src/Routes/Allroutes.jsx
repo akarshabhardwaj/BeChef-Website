@@ -22,6 +22,10 @@ import { SingleMealProductPage } from '../SinglrProdctPages/SingleMealProductPag
 import SinglePantry from '../SinglrProdctPages/SinglePantry'
 import { SingleWineProductPage } from '../SinglrProdctPages/SingleWineProductPage'
 
+import Address from '../Pages/address'
+import Payment from '../Pages/Payment'
+import OnTheMenu from '../Pages/OnTheMenu'
+
 const AllRoutes = () => {
   return (
     <Routes>
@@ -34,6 +38,10 @@ const AllRoutes = () => {
     <Route path='/delete' element={<DeleteProducts/>}/>
 
       <Route path="/" element={<Home />} />
+      <Route path='/address' element={<Address/>}/>
+      <Route path='/payment' element={<Payment/>}/>
+      <Route path='/onMenu' element={<OnTheMenu/>}/>
+
       <Route path="/kitchen" element={
         <PrivateRoute>
           <Kitchen />
