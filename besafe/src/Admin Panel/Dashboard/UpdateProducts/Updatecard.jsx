@@ -1,8 +1,8 @@
 import React from 'react'
-import Styles from "./DeleteProduct.module.css"
+import Styles from "./Update.module.css"
 import { useToast } from '@chakra-ui/react'
 
-const DeleteCard = ({name,img,desc,price,HandleDelete,_id,cate}) => {
+const UpdateCard = ({name,img,desc,price,HandleUpdate,_id,cate}) => {
   const toast=useToast()
   return (
     <div>
@@ -14,11 +14,11 @@ const DeleteCard = ({name,img,desc,price,HandleDelete,_id,cate}) => {
     <button onClick={
       ()=>
       {
-      HandleDelete(_id,cate)
-    }}>Delete Products</button>
+      HandleUpdate(_id,cate)
+    }}>Update Products</button>
         </div>
     </div>
   )
 }
 
-export default DeleteCard
+export default UpdateCard

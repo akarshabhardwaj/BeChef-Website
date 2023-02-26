@@ -22,7 +22,7 @@
   padding: 3px 10px 3px 10px;
 }
 .follow {
-  padding: 0px 8% 0px 8%;
+  padding: 0px 6% 0px 6%;
 }
 .follow div {
   display: flex;
@@ -36,7 +36,7 @@
   cursor: pointer;
 }
 .blog {
-  padding: 0px 8% 0px 8%;
+  padding: 0px 6% 0px 6%;
 }
 .blog div {
   display: flex;

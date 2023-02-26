@@ -14,7 +14,17 @@ KitchenRoute.get("/",async (req,res)=>{
     }
 })
 
+KitchenRoute.get("/:id",async (req,res)=>{
+ let Id=req.params.id
 
+    try {
+        const kitchens=await KitchenModel.findOne({_id:Id})
+        console.log(kitchens)
+        res.send({"msg":kitchens})
+    } catch (error) {
+        res.send({"msg":error.message})
+    }
+})
 
 
 module.exports={KitchenRoute}

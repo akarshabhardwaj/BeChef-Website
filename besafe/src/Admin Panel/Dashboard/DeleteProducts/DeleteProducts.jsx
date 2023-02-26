@@ -66,6 +66,7 @@ then((res)=>setWine(res.msg))
 }
 
 const HandleDelete=async (id,cate)=>{
+    console.log(id,cate)
  if(cate==="meal"){
   let res=await   fetch(`http://localhost:8080/admin/mealdelete/${id}`,{
         method:"DELETE",
@@ -76,6 +77,43 @@ const HandleDelete=async (id,cate)=>{
     })
     let response=await res.json()
     console.log(response)
+    alert(response.msg)
+ }else if(cate==="pantry"){
+    let res=await   fetch(`http://localhost:8080/admin/pantrydelete/${id}`,{
+        method:"DELETE",
+        headers:{
+            "Content-tpye":"application/json",
+            Authorization:"cheftoken"
+        }
+    })
+    let response=await res.json()
+    console.log(response)
+    alert(response.msg)
+ }
+ else if(cate==="kitchen"){
+    let res=await   fetch(`http://localhost:8080/admin/kitchendelete/${id}`,{
+        method:"DELETE",
+        headers:{
+            "Content-tpye":"application/json",
+            Authorization:"cheftoken"
+        }
+    })
+    let response=await res.json()
+    console.log(response)
+    alert(response.msg)
+ }
+ else if(cate==="wine"){
+    console.log("wine")
+    let res=await   fetch(`http://localhost:8080/admin/winedelete/${id}`,{
+        method:"DELETE",
+        headers:{
+            "Content-tpye":"application/json",
+            Authorization:"cheftoken"
+        }
+    })
+    let response=await res.json()
+    console.log(response)
+    alert(response.msg)
  }
  getData()
 }

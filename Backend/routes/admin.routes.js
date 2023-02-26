@@ -9,15 +9,45 @@ const AdminRoute=express.Router()
 
 
 
-AdminRoute.post("/login",(req,res)=>{
-    const{email,pass}=req.body
-    if(email==="admin@gmail.com" && pass==="chefadmin")
-    {
-        res.send({"msg":"Welcome Admin","token":"cheftoken"})
-    }
-    else
-    {
-        res.send({"msg":"Unauthorised Admin"})
+AdminRoute.post("/login",async (req,res)=>{
+    // const{email,pass}=req.body
+    // console.log(req.body)
+    // if(email==="admin@gmail.com" && pass==="chefadmin")
+    // {
+    //     res.send({"msg":"Welcome Admin","token":"cheftoken"})
+    // }
+    // else
+    // {
+    //     res.send({"msg":"Unauthorised Admin"})
+    // }
+    const{email,pass}=req.body;
+    try{
+        const user=await UserModel.find({email});
+        if(user.length>0){
+            if(user[0].admin){
+                const hashed_pass=user[0].pass;
+                bcrypt.compare(pass,hashed_pass,(err,result)=>{
+                    if(result){
+                        console.log(user)
+                        const token=jwt.sign({userID:user[0]._id},"bechef");
+                        res.send({"msg":"login Success","token":token,"userName":user[0].name,"admin":user[0].admin});
+                    }else{
+                        res.send({"msg":"wrong cred"});
+                    }
+                });
+            }
+            else 
+            {
+                res.send({"msg":"wrong cred"});
+            }
+            
+        }
+        else{
+            res.send({"msg":"wrong cred"})
+        }
+    }catch(err){
+        res.send({"msg":err.message})
+        console.log(err)
     }
 })
 
@@ -44,9 +74,9 @@ AdminRoute.post("/pantry",async (req,res)=>{
     const token=req.headers.authorization
 try {
     if(token==="cheftoken"){
-        await PantryModel.insertMany(payload)
-        // const pantry=new PantryModel(req.body)
-        // pantry.save()
+        // await PantryModel.insertMany(payload)
+        const pantry=new PantryModel(req.body)
+        pantry.save()
         res.send({"msg":"Added Pantry Data"})
     }else
     {
