@@ -2,22 +2,56 @@ const express = require('express');
 const{PantryModel}=require("../models/Pantry.model")
 const{KitchenModel}=require("../models/Kitchen.model")
 const{WineModel}=require("../models/Wine.model")
-const{MealModel}=require("../models/Meal.model")
+const{MealModel}=require("../models/Meal.model");
+const { UserModel } = require('../models/User.model');
+const bcrypt = require('bcrypt');
+const jwt=require("jsonwebtoken")
 
 
 const AdminRoute=express.Router()
 
 
 
-AdminRoute.post("/login",(req,res)=>{
-    const{email,pass}=req.body
-    if(email==="admin@gmail.com" && pass==="chefadmin")
-    {
-        res.send({"msg":"Welcome Admin","token":"cheftoken"})
-    }
-    else
-    {
-        res.send({"msg":"Unauthorised Admin"})
+AdminRoute.post("/login",async (req,res)=>{
+    // const{email,pass}=req.body
+    // console.log(req.body)
+    // if(email==="admin@gmail.com" && pass==="chefadmin")
+    // {
+    //     res.send({"msg":"Welcome Admin","token":"cheftoken"})
+    // }
+    // else
+    // {
+    //     res.send({"msg":"Unauthorised Admin"})
+    // }
+    const{email,pass}=req.body;
+    try{
+        const user=await UserModel.find({email});
+        if(user.length>0){
+            console.log(user)
+            if(user[0].admin){
+                const hashed_pass=user[0].pass;
+                bcrypt.compare(pass,hashed_pass,(err,result)=>{
+                    if(result){
+                        console.log(user)
+                        const token=jwt.sign({userID:user[0]._id},"bechef");
+                        res.send({"msg":"login Success","token":token,"userName":user[0].name,"admin":user[0].admin});
+                    }else{
+                        res.send({"msg":"wrong cred"});
+                    }
+                });
+            }
+            else 
+            {
+                res.send({"msg":"wrong cred"});
+            }
+            
+        }
+        else{
+            res.send({"msg":"wrong cred"})
+        }
+    }catch(err){
+        res.send({"msg":err.message})
+        console.log(err)
     }
 })
 
@@ -44,9 +78,9 @@ AdminRoute.post("/pantry",async (req,res)=>{
     const token=req.headers.authorization
 try {
     if(token==="cheftoken"){
-        await PantryModel.insertMany(payload)
-        // const pantry=new PantryModel(req.body)
-        // pantry.save()
+        // await PantryModel.insertMany(payload)
+        const pantry=new PantryModel(req.body)
+        pantry.save()
         res.send({"msg":"Added Pantry Data"})
     }else
     {
@@ -74,6 +108,25 @@ res.send({"msg":"Invalid Token"})
     } catch (error) {
         
     }
+})
+
+AdminRoute.patch("/pantryupdate/:id",async (req,res)=>{
+    const Id=req.params.id;
+    res.send(Id)
+//     const payload=req.body
+//     const token=req.headers.authorization
+//     try {
+//         if(token==="cheftoken"){
+//             await PantryModel.findByIdAndDelete({_id:Id})
+//             res.send({"msg":`Successfully Deleted Id:${Id}`})
+//         }
+//         else
+//         {
+// res.send({"msg":"Invalid Token"})
+//         }
+//     } catch (error) {
+        
+//     }
 })
 
 //!pantry get and Post and delete over with authorization

@@ -77,7 +77,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className={style.navbarText}>
-          <Link to={"/"} style={{ margin: "auto" }}>
+          <Link to={"/onMenu"} style={{ margin: "auto" }}>
             <button className={style.navbarText1} style={(onthemenu ? ({ color: "#0F346C", textDecoration: "underline",textUnderlineOffset:"15px" }) : ({ color: "black" }))} onClick={handleonthemenu}>
               ON THE MENU
             </button>
