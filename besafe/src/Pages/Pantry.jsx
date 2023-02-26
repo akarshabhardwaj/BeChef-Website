@@ -37,7 +37,18 @@ function Pantry() {
       }
     };
     fetchData();
-  }, []);
+  }, [sortby]);
+
+  if (sortby === "lh") {
+    pantry.sort((a, b) => {
+      return a.price - b.price;
+    });
+  } else if(sortby === "hl") {
+    pantry.sort((a, b) => {
+      return b.price - a.price;
+    });
+  }
+
 
   if (isLoading) {
     return (
