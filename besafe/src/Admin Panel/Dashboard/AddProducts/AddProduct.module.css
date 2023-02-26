@@ -1,0 +1,63 @@
+.input{
+    border: 2px solid teal;
+    display: block;
+      margin: auto;
+ margin-bottom: 1rem;
+ padding: 0.5rem;
+ border-radius: 4px;
+ width: 100%;
+}
+.input::placeholder{
+    color: #83aae4;
+    font-weight: 900;
+}
+.select{
+    border: 2px solid teal;
+    display: block;
+   border-radius: 4px;
+    margin: auto;
+ margin-bottom: 1rem; 
+ color: #83aae4;
+ font-weight: 900;
+ width: 100%;
+
+}
+.form{
+    width:auto;
+    margin: auto;
+    border: 2mm ridge #83aae4;
+    padding: 2rem;
+}
+
+.div{
+    width: 60%;
+    margin: auto;
+    border: 2mm ridge #83aae4;
+    margin-top: 5%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    padding: 2rem;
+}
+.image{
+    background: darkcyan;
+    height: 100vh;
+}
+.button{
+    background-color: #83aae4;
+    color:white;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+.button:hover{
+    background-color: #253041;
+    color:white;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    padding: 0.5rem;
+    border-radius: 4px; 
+}
+@media only screen and (max-width:560px){
+    .div{
+        width: 100%;
+        padding: 1rem;
+    }
+}

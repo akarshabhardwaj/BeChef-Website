@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./SingleWineProductPage.module.css";
-import { SocialFooter } from "./SocialFooter";
+import { SocialFooter } from "../Components/SocialFooter";
 import {
   Heading,
   Tab,

@@ -23,13 +23,14 @@ app.get("/",(req,res)=>{
     console.log("Home Page")
     res.send("Home page")
 })
+app.use("/users",userRouter);
+app.use("/kitchen",KitchenRoute)
+app.use(authenticate);
 app.use("/admin",AdminRoute)
 app.use("/meals",MealRoute)
 app.use("/wines",WineRoute)
 app.use("/pantry",PantryRoute)
 app.use("/kitchen",KitchenRoute)
-app.use("/users",userRouter);
-app.use(authenticate);
 
 
 

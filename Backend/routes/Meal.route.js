@@ -14,6 +14,16 @@ try {
 })
 
 
+MealRoute.get("/:id",async (req,res)=>{
+    let Id=req.params.id
+       try {
+           const kitchens=await MealModel.findOne({_id:Id})
+           res.send({"msg":kitchens})
+       } catch (error) {
+           res.send({"msg":error.message})
+       }
+   })
+
 
 
 module.exports={MealRoute}
