@@ -1,3 +1,4 @@
+import { useToast } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom"
 import Styles from "./Pantry.module.css"
@@ -33,6 +34,19 @@ const SinglePantry = () => {
       }, [_id]);
     //   console.log(pantry);
 
+    const toast = useToast()
+  const addToBasket = ()=>{
+    
+    toast({
+      title: "Add to Basket",
+      description: "You Can See Cart Now",
+      variant: "subtle",
+      status:'success',
+      position: 'top-right',
+      duration: 3000,
+      isClosable: true,
+    })
+  }
     return (
         <div className={Styles.adjust}> 
             <div>
@@ -44,7 +58,7 @@ const SinglePantry = () => {
                 
                <h2>Price ${pantry?.price}</h2>
               <h3>{quan}</h3>
-             <h3 style={{backgroundColor:"#f26226",width:"25%",padding:"2px",border:"0px",color:"white",textAlign:"center",height:"auto",borderRadius:"3px"}}>ADD TO BASKET</h3>
+             <button style={{backgroundColor:"#f26226",width:"25%",padding:"2px",border:"0px",color:"white",textAlign:"center",height:"auto",borderRadius:"3px"}} onClick={addToBasket}>ADD TO BASKET</button>
                </div>
             <div className={Styles.des}>
                 <h3>Description</h3>

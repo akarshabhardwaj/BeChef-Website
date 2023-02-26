@@ -59,7 +59,7 @@ function Pantry() {
          <div className={styles.cardContainer}>
             {pantry?.map((pantry) => (
                <MealCard
-                  id={pantry.id}
+                  id={pantry._id}
                   image={pantry.img[0].subImage}
                   title={pantry.name}
                   // desc={wine.subDes}

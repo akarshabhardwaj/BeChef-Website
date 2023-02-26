@@ -85,7 +85,7 @@ const dec = async(id,qty) => {
           >
             {items.name}
           </h1>
-          <Text noOfLines={2}>{items.desc}</Text>
+          {/* <Text noOfLines={2}>{items.des[0].subDes}</Text> */}
         </div>
         <div className={style.quantity}>
           <div className={style.quantityInner}>

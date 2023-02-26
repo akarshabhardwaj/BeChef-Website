@@ -60,7 +60,7 @@ function Kitchen() {
          <div className={styles.cardContainer}>
             {kitchentools?.map((kitchen) => (
                <MealCard
-                  id={kitchen.id}
+                  id={kitchen._id}
                   image={kitchen.img[0].subImage}
                   title={kitchen.name}
                   // desc={wine.subDes}

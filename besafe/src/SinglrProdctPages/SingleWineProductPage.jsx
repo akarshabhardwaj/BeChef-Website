@@ -11,6 +11,7 @@ import {
   TabPanel,
   TabPanels,
   useDisclosure,
+  useToast,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
@@ -20,7 +21,7 @@ function SingleWineProductPage() {
   const [product, setProduct] = useState(); //paased custom obj to check UI
   const [qty, setQty] = useState(1); //storing selected qty for a product
   const { _id } = useParams();
-
+  const toast = useToast()
  // console.log(_id)
  useEffect(() => {
   let fetchData = async () => {
@@ -60,7 +61,16 @@ const AddToCart=async (product)=>{
 
   let ans=await res.json()
   console.log(ans)
-  alert(ans.msg)
+  // alert(ans.msg)
+  toast({
+    title: "Add to Basket",
+    description: "You Can See Cart Now",
+    variant: "subtle",
+    status:'success',
+    position: 'top-right',
+    duration: 3000,
+    isClosable: true,
+  })
 }
   return (
     // Main container

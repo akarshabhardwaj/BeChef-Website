@@ -17,6 +17,7 @@ import {
   ModalCloseButton,
   ModalBody,
   Image,
+  useToast,
 } from "@chakra-ui/react";
 
 // created a custom object with same schema for cheking UI
@@ -57,6 +58,22 @@ function SingleMealProductPage() {
     onOpen();
     setModalImg(imgLink);
   }
+
+
+  const toast = useToast()
+  const addToBasket = ()=>{
+    
+    toast({
+      title: "Add to Basket",
+      description: "You Can See Cart Now",
+      variant: "subtle",
+      status:'success',
+      position: 'top-right',
+      duration: 3000,
+      isClosable: true,
+    })
+  }
+
   // console.log(product);
   return (
     // Main container
@@ -125,7 +142,7 @@ function SingleMealProductPage() {
                 <option value="4">4</option>
                 <option value="5">5</option>
               </select>
-              <button>ADD TO BASKET</button>
+              <button onClick={addToBasket}>ADD TO BASKET</button>
             </div>
 
             {/****************** Long description ******************/}
