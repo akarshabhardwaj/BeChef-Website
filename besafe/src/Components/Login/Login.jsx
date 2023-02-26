@@ -37,7 +37,7 @@ const Login = () => {
     }
     const handleSubmit = () => {
         console.log(details);
-        fetch("http://localhost:8080/users/login", {
+        fetch("https://dark-red-goshawk-gown.cyclic.app/users/login", {
             method: "POST",
             body: JSON.stringify(details),
             headers: {

@@ -266,6 +266,7 @@
 
     #textName{
         font-size: '30px';
+        text-align: center;
     }
 
     #buttonhome1{
@@ -279,7 +280,7 @@
 
     #flexBox{
         flex-direction: column;
-        width: 80%;
+        width: 70%;
         margin: auto;
     }
 
