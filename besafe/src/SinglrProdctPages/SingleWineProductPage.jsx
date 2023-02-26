@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styles from "./SingleWineProductPage.module.css";
 import { SocialFooter } from "../Components/SocialFooter";
+import { useParams } from "react-router-dom";
+
 import {
   Heading,
   Tab,
@@ -13,65 +15,46 @@ import {
 import { Link } from "react-router-dom";
 
 // created a custom object with same schema for cheking UI
-let items = {
-  name: "Warm Up with Red Wines",
-  img: [
-    {
-      subImage:
-        "https://media.blueapron.com/agora/images/product/CCMK0000631/attachment/a891a45f233d356a138cb20b0e4c238b.jpg?width=800",
-    },
-  ],
-  price: 39.99,
-  pack: 3,
-  milliliter: 500,
-  des: [
-    {
-      subDes:
-        "Sometimes a fireplace isn’t enough—it takes a glass of wine to chase away the chill within. Our hand-selected red wine bundle will warm you up from the inside out. Snuggle up under a blanket and enjoy a glass with your favorite seasonal soup or stew.",
-    },
-    {
-      subDes:
-        "This Groundwork Grenache was produced using whole cluster fermentation, where some grapes are left on their stem, to introduce tart tannins and complex spices to this typically fruity varietal.",
-    },
-    {
-      subDes:
-        "The grapes for the 2019 Goose Ridge Cabernet Sauvignon were grown on a south-facing slope for maximum sun exposure, leading to ripe, robust fruit flavors. Aging in new and used oak barrels for 16 months brings a layer of warming spice to each bottle.",
-    },
-    {
-      subDes:
-        "The 2020 Blue Barrel Red Wine Blend is vinified from Corvina, Corvinone, and Rondinella grapes grown in the Veneto region of Italy. This light and bright wine was blended to bring out the best in your dinner. The balance of tart red fruit and light structure will work with cuisines ranging from light to rich.",
-    },
-  ],
-  include: [
-    {
-      subInclude: "2020 Groundwork Grenache",
-    },
-    {
-      subInclude: "2019 Goose Ridge Cabernet Sauvignon",
-    },
-    {
-      subInclude: "2020 Blue Barrel Red Wine Blend",
-    },
-  ],
-};
 
 function SingleWineProductPage() {
-  const [product, setProduct] = useState([items]); //paased custom obj to check UI
+  const [product, setProduct] = useState(); //paased custom obj to check UI
   const [qty, setQty] = useState(1); //storing selected qty for a product
+  const { _id } = useParams();
 
-  useEffect(() => {
-    console.log(qty);
-  }, [qty]);
+ // console.log(_id)
+ useEffect(() => {
+  let fetchData = async () => {
+    try {
+      let res = await fetch(
+        `https://dark-red-goshawk-gown.cyclic.app/wines/${_id}`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: localStorage.getItem("token"),
+            "Content-Type": "Application/json",
+          },
+        }
+      );
+      let data = await res.json();
+      console.log(data);
+      setProduct(data.msg);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  fetchData();
+}, [_id]);
+// console.log(product);
 
   return (
     // Main container
     <>
       <div className={styles.container}>
-        {product?.map((items) => (
+        {/* {product?.map((items) => ( */}
           <>
             <div className={styles.product_img}>
               {/************************** Showing big image  ************/}
-              <img src={items.img[0].subImage} alt="Product" />
+              <img src={product?.img[0].subImage} alt="Product" />
               <br></br>
             </div>
 
@@ -80,7 +63,7 @@ function SingleWineProductPage() {
               <div>
                 {/* Showing name */}
                 <Heading size="lg" mb="10px">
-                  {items.name}
+                {product?.name}
                 </Heading>
               </div>
 
@@ -88,7 +71,7 @@ function SingleWineProductPage() {
               <div className={styles.cart_box}>
                 <p className={styles.price}>
                   <span>
-                    Price $<span>{items.price}</span>
+                    Price $<span>{product?.name}</span>
                   </span>
                 </p>
                 <select onChange={(e) => setQty(e.target.value)}>
@@ -103,15 +86,15 @@ function SingleWineProductPage() {
 
               {/****************** Long description ******************/}
               <div className={styles.description}>
-                {items.des?.map((desc) => (
+              {product?.des?.map((desc) => (
                   <>
                     <p>{desc.subDes}</p>
                     <br></br>
                   </>
                 ))}
-                <p>{items.listHead}</p>
+                <p>{product?.listHead}</p>
                 <div>
-                  {items.listContent?.map((list) => (
+                {product?.listContent?.map((list) => (
                     <>
                       <li>{list.content}</li>
                     </>
@@ -144,7 +127,7 @@ function SingleWineProductPage() {
                     >
                       <TabPanel>
                         <p>
-                          Collection includes {items.pack} x {items.milliliter}{" "}
+                          Collection includes {product?.pack} x {product?.milliliter}{" "}
                           mL bottles (2/3 of a standard-size wine bottle)
                           featuring the following wines:
                         </p>
@@ -198,7 +181,7 @@ function SingleWineProductPage() {
               </div>
             </div>
           </>
-        ))}
+        {/* ))} */}
       </div>
       <SocialFooter />
     </>
