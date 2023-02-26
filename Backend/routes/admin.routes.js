@@ -24,6 +24,7 @@ AdminRoute.post("/login",async (req,res)=>{
     //     res.send({"msg":"Unauthorised Admin"})
     // }
     const{email,pass}=req.body;
+
     try{
         const user=await UserModel.find({email});
         if(user.length>0){
@@ -112,21 +113,12 @@ res.send({"msg":"Invalid Token"})
 
 AdminRoute.patch("/pantryupdate/:id",async (req,res)=>{
     const Id=req.params.id;
-    res.send(Id)
-//     const payload=req.body
-//     const token=req.headers.authorization
-//     try {
-//         if(token==="cheftoken"){
-//             await PantryModel.findByIdAndDelete({_id:Id})
-//             res.send({"msg":`Successfully Deleted Id:${Id}`})
-//         }
-//         else
-//         {
-// res.send({"msg":"Invalid Token"})
-//         }
-//     } catch (error) {
-        
-//     }
+    console.log(req.body,Id)
+    // res.send(Id)
+    const payload=req.body
+    // const token=req.headers.authorization
+    await PantryModel.findByIdAndUpdate({_id:Id},payload)
+    res.send({"msg":`Successfully updated Id:${Id}`})
 })
 
 //!pantry get and Post and delete over with authorization
@@ -187,6 +179,17 @@ res.send({"msg":"Invalid Token"})
         res.send({"msg":error.message})
     }
 })
+
+
+AdminRoute.patch("/kitchenupdate/:id",async (req,res)=>{
+    const Id=req.params.id;
+    // console.log(req.body)
+    // res.send(Id)
+    const payload=req.body
+    await KitchenModel.findByIdAndUpdate({_id:Id},payload)
+    res.send({"msg":`Successfully updated Id:${Id}`})
+  
+})
 //!kitcehn work for get and post and delete over
 
 //!wine work start
@@ -245,6 +248,17 @@ res.send({"msg":"Invalid Token"})
     }
 })
 
+AdminRoute.patch("/wineupdate/:id",async (req,res)=>{
+    const Id=req.params.id;
+    // console.log(req.body)
+    // res.send(Id)
+    const payload=req.body
+
+    await WineModel.findByIdAndUpdate({_id:Id},payload)
+    res.send({"msg":`Successfully updated Id:${Id}`})
+  
+})
+
 //!wine work over get and post
 
 //!meal product starts 
@@ -301,6 +315,16 @@ res.send({"msg":"Invalid Token"})
     } catch (error) {
         res.send({"msg":error.message})
     }
+})
+
+AdminRoute.patch("/mealupdate/:id",async (req,res)=>{
+    const Id=req.params.id;
+    // console.log(req.body)
+    // res.send(Id)
+    const payload=req.body
+    await MealModel.findByIdAndUpdate({_id:Id},payload)
+    res.send({"msg":`Successfully updated Id:${Id}`})
+    
 })
 
 //!get and post for meals complete

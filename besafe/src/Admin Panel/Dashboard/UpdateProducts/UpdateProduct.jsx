@@ -66,33 +66,40 @@ then((res)=>setWine(res.msg))
 
 }
 
-const HandleUpdate=async (id,cate)=>{
-    console.log(id,cate)
+const HandleUpdate=async (id,cate,title)=>{
+    console.log(id,cate,title)
 
  if(cate==="meal"){
   let res=await   fetch(`http://localhost:8080/admin/mealupdate/${id}`,{
         method:"PATCH",
         headers:{
-            "Content-tpye":"application/json",
+            "Content-type":"application/json",
             Authorization:"cheftoken"
         },
-        body:JSON.stringify()
+        body:JSON.stringify({name:title})
     })
     let response=await res.json()
     console.log(response)
     alert(response.msg)
- }else if(cate==="pantry"){
-    let res=await   fetch(`http://localhost:8080/admin/pantryupdate/${id}`,{
+    getData()
+ }
+ 
+ else if(cate==="pantry"){
+  console.log({name:title})
+    fetch(`http://localhost:8080/admin/pantryupdate/${id}`,{
         method:"PATCH",
         headers:{
-            "Content-tpye":"application/json",
-            Authorization:"cheftoken"
+            "Content-type":"application/json",
+             Authorization:"cheftoken"
         },
-        body:JSON.stringify()
+        body:JSON.stringify({"name":title})
+    }).then((res)=>res.json())
+    .then((res)=>{console.log(res)
+      alert(res.msg)
     })
-    let response=await res.json()
-    console.log(response)
-    alert(response.msg)
+    // console.log(response)
+    // alert(response.msg)
+    getData()
  }
  else if(cate==="kitchen"){
     let res=await   fetch(`http://localhost:8080/admin/kitchenupdate/${id}`,{
@@ -101,7 +108,7 @@ const HandleUpdate=async (id,cate)=>{
             "Content-tpye":"application/json",
             Authorization:"cheftoken"
         },
-        body:JSON.stringify()
+        body:JSON.stringify({name:title})
     })
     let response=await res.json()
     console.log(response)
@@ -112,16 +119,17 @@ const HandleUpdate=async (id,cate)=>{
     let res=await   fetch(`http://localhost:8080/admin/wineupdate/${id}`,{
         method:"PATCH",
         headers:{
-            "Content-tpye":"application/json",
+            "Content-type":"application/json",
             Authorization:"cheftoken"
         },
-        body:JSON.stringify()
+        body:JSON.stringify({name:title})
     })
     let response=await res.json()
     console.log(response)
     alert(response.msg)
+    getData()
  }
- getData()
+
 }
 
 useEffect(()=>{
