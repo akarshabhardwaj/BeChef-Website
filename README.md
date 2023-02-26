@@ -52,14 +52,19 @@ https://funny-pegasus-c3b55b.netlify.app/
 
 ## Some screenshots of the project
 
+<img src="./screenshot/addpageadmin.jpg">
+<img src="./screenshot/adminlogin.jpg">
+<img src="./screenshot/adminpagehome.jpg">
 <img src="./screenshot/cartpage.jpg">
-<img src="./Screenshots/Screenshot (449).png">
-<img src="./Screenshots/Screenshot (451).png">
-<img src="./Screenshots/Screenshot (452).png">
-<img src="./Screenshots/Screenshot (453).png">
-<img src="./Screenshots/Screenshot (454).png">
-<img src="./Screenshots/Screenshot (455).png">
-<img src="./Screenshots/Screenshot (456).png">
+<img src="./screenshot/category2.jpg">
+<img src="./screenshot/category.jpg">
+<img src="./screenshot/checkoutpage.jpg">
+<img src="./screenshot/deletepageadmin.jpg">
+<img src="./screenshot/homepage.jpg">
+<img src="./screenshot/login.jpg">
+<img src="./screenshot/loginpage.jpg">
+<img src="./screenshot/singlepage.jpg">
+<img src="./screenshot/updatepageadmin.jpg">
 
 
 ### Thanks for reading
