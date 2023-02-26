@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import styles from "./SingleWineProductPage.module.css";
 import { SocialFooter } from "../Components/SocialFooter";
 import { useParams } from "react-router-dom";
+import { Box } from "@chakra-ui/react";
+import { Skeleton, SkeletonCircle, SkeletonText } from "@chakra-ui/react";
 
 import {
   Heading,
@@ -19,38 +21,52 @@ import { Link } from "react-router-dom";
 function SingleWineProductPage() {
   const [product, setProduct] = useState(); //paased custom obj to check UI
   const [qty, setQty] = useState(1); //storing selected qty for a product
+  const [isLoading, setIsLoading] = useState(true); //storing value for skeleton loading
   const { _id } = useParams();
 
- // console.log(_id)
- useEffect(() => {
-  let fetchData = async () => {
-    try {
-      let res = await fetch(
-        `https://dark-red-goshawk-gown.cyclic.app/wines/${_id}`,
-        {
-          method: "GET",
-          headers: {
-            Authorization: localStorage.getItem("token"),
-            "Content-Type": "Application/json",
-          },
-        }
-      );
-      let data = await res.json();
-      console.log(data);
-      setProduct(data.msg);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-  fetchData();
-}, [_id]);
-// console.log(product);
+  // console.log(_id)
+  useEffect(() => {
+    let fetchData = async () => {
+      try {
+        let res = await fetch(
+          `https://dark-red-goshawk-gown.cyclic.app/wines/${_id}`,
+          {
+            method: "GET",
+            headers: {
+              Authorization: localStorage.getItem("token"),
+              "Content-Type": "Application/json",
+            },
+          }
+        );
+        let data = await res.json();
+        console.log(data);
+        setIsLoading(false);
+        setProduct(data.msg);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchData();
+  }, [_id]);
+  // console.log(product);
 
-  return (
-    // Main container
-    <>
-      <div className={styles.container}>
-        {/* {product?.map((items) => ( */}
+  if (isLoading) {
+    return (
+      <>
+        <Box padding="6" boxShadow="lg" bg="white">
+          <SkeletonText mt="4" noOfLines={4} spacing="4" skeletonHeight="2" />
+          <SkeletonText mt="4" noOfLines={4} spacing="4" skeletonHeight="2" />
+          <SkeletonText mt="4" noOfLines={4} spacing="4" skeletonHeight="2" />
+          <SkeletonText mt="4" noOfLines={4} spacing="4" skeletonHeight="2" />
+        </Box>
+      </>
+    );
+  } else {
+    return (
+      // Main container
+      <>
+        <div className={styles.container}>
+          {/* {product?.map((items) => ( */}
           <>
             <div className={styles.product_img}>
               {/************************** Showing big image  ************/}
@@ -63,7 +79,7 @@ function SingleWineProductPage() {
               <div>
                 {/* Showing name */}
                 <Heading size="lg" mb="10px">
-                {product?.name}
+                  {product?.name}
                 </Heading>
               </div>
 
@@ -86,7 +102,7 @@ function SingleWineProductPage() {
 
               {/****************** Long description ******************/}
               <div className={styles.description}>
-              {product?.des?.map((desc) => (
+                {product?.des?.map((desc) => (
                   <>
                     <p>{desc.subDes}</p>
                     <br></br>
@@ -94,7 +110,7 @@ function SingleWineProductPage() {
                 ))}
                 <p>{product?.listHead}</p>
                 <div>
-                {product?.listContent?.map((list) => (
+                  {product?.listContent?.map((list) => (
                     <>
                       <li>{list.content}</li>
                     </>
@@ -127,9 +143,10 @@ function SingleWineProductPage() {
                     >
                       <TabPanel>
                         <p>
-                          Collection includes {product?.pack} x {product?.milliliter}{" "}
-                          mL bottles (2/3 of a standard-size wine bottle)
-                          featuring the following wines:
+                          Collection includes {product?.pack} x{" "}
+                          {product?.milliliter} mL bottles (2/3 of a
+                          standard-size wine bottle) featuring the following
+                          wines:
                         </p>
                         <Link>
                           <li style={{ color: "#0f346c", fontWeight: "500" }}>
@@ -181,11 +198,12 @@ function SingleWineProductPage() {
               </div>
             </div>
           </>
-        {/* ))} */}
-      </div>
-      <SocialFooter />
-    </>
-  );
+          {/* ))} */}
+        </div>
+        <SocialFooter />
+      </>
+    );
+  }
 }
 
 export { SingleWineProductPage };
