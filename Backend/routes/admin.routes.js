@@ -44,8 +44,9 @@ AdminRoute.post("/pantry",async (req,res)=>{
     const token=req.headers.authorization
 try {
     if(token==="cheftoken"){
-        const pantry=new PantryModel(req.body)
-        pantry.save()
+        await PantryModel.insertMany(payload)
+        // const pantry=new PantryModel(req.body)
+        // pantry.save()
         res.send({"msg":"Added Pantry Data"})
     }else
     {

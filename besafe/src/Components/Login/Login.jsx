@@ -14,13 +14,8 @@ import {
     InputRightElement,
     InputLeftElement,
     Icon,
-    Alert,
-    AlertIcon,
-    AlertTitle,
-    AlertDescription,
 } from '@chakra-ui/react'
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
-import { BsFillPersonFill } from 'react-icons/bs';
 import { MdPassword, MdEmail } from 'react-icons/md';
 import { AuthContext } from "../../Context/AuthContextProvider";
 import { Link } from 'react-router-dom';
@@ -59,7 +54,6 @@ const Login = () => {
             })
             .catch(err => console.log(err, "catch"))
     }
-    console.log(details)
     const handleClick = () => setShow(!show)
     return (
         <>

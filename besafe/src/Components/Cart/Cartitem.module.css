@@ -1,0 +1,50 @@
+.subitem{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    vertical-align: auto;
+}
+.item{
+    background-color: white;
+}
+.subitemText{
+    width: 30%;
+    text-align: "center";
+    margin: auto;
+}
+.quantityInner{
+    display: flex;
+    justify-content: center;
+}
+.quantity{
+    padding-top: 0;
+    width: 20%;
+    text-align: center;
+    margin: auto;
+}
+.remove{
+    width: 10%;
+    text-align: center;
+    padding-top: 0;
+    margin: auto;
+}
+@media only screen and (max-width: 784px) {
+    .subitemText{
+        display: none;
+    }
+    .quantity{
+        padding-top: 0;
+        width: 20%;
+    }
+    .quantityInner{
+        display: block;
+        margin: auto;
+    }
+    .remove{
+        width: 10%;
+        text-align: center;
+        padding-top: 0;
+        margin: auto;
+    }
+}
