@@ -28,4 +28,15 @@ CartRoute.post("/addtocart",async (req,res)=>{
 })
 
 
+CartRoute.delete("/deletecart/:id",async (req,res)=>{
+    let Id=req.params.id
+    try {
+       await CartModel.findByIdAndDelete({_id:Id})
+        res.send({"msg":"Successfully deleted"})
+    } catch (error) {
+        res.send({"msg":error.message}) 
+    }
+})
+
+
 module.exports={CartRoute}

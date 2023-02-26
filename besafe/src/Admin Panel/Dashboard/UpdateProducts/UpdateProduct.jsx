@@ -66,8 +66,8 @@ then((res)=>setWine(res.msg))
 
 }
 
-const HandleUpdate=async (id,cate)=>{
-    console.log(id,cate)
+const HandleUpdate=async (id,cate,title)=>{
+    console.log(id,cate,title)
 
  if(cate==="meal"){
   let res=await   fetch(`http://localhost:8080/admin/mealupdate/${id}`,{
@@ -76,7 +76,7 @@ const HandleUpdate=async (id,cate)=>{
             "Content-tpye":"application/json",
             Authorization:"cheftoken"
         },
-        body:JSON.stringify()
+        body:JSON.stringify({name:title})
     })
     let response=await res.json()
     console.log(response)
@@ -88,7 +88,7 @@ const HandleUpdate=async (id,cate)=>{
             "Content-tpye":"application/json",
             Authorization:"cheftoken"
         },
-        body:JSON.stringify()
+        body:JSON.stringify({name:title})
     })
     let response=await res.json()
     console.log(response)
@@ -101,7 +101,7 @@ const HandleUpdate=async (id,cate)=>{
             "Content-tpye":"application/json",
             Authorization:"cheftoken"
         },
-        body:JSON.stringify()
+        body:JSON.stringify({name:title})
     })
     let response=await res.json()
     console.log(response)
@@ -115,7 +115,7 @@ const HandleUpdate=async (id,cate)=>{
             "Content-tpye":"application/json",
             Authorization:"cheftoken"
         },
-        body:JSON.stringify()
+        body:JSON.stringify({name:title})
     })
     let response=await res.json()
     console.log(response)
