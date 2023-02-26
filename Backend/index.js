@@ -24,6 +24,7 @@ app.get("/",(req,res)=>{
     res.send("Home page")
 })
 app.use("/users",userRouter);
+app.use("/kitchen",KitchenRoute)
 app.use(authenticate);
 app.use("/admin",AdminRoute)
 app.use("/meals",MealRoute)

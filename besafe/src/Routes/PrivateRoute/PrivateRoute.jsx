@@ -1,6 +1,5 @@
 import React from "react";
 import { AuthContext } from "../../Context/AuthContextProvider"
-import { Navigate } from "react-router-dom";
 import { useToast,Box } from "@chakra-ui/react";
 
 
