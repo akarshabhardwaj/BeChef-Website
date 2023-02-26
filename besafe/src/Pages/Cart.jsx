@@ -89,7 +89,7 @@ const Index = () => {
        setApply("");
        toast({
         title: "Applied Successfully",
-        description: "You have added VS50",
+        description: "You have added Bechef30",
         variant: "subtle",
         status:'success',
         position: 'top-right',
@@ -99,7 +99,7 @@ const Index = () => {
      }else if(apply !== "Bechef30"){
       toast({
         title: "Not Valid",
-        description: "You have to add VS50",
+        description: "You have to add Bechef30",
         variant: "subtle",
         status:'error',
         position: 'top-right',
