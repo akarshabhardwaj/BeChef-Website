@@ -64,6 +64,39 @@ function Kitchen() {
   } else {
     return (
       <div className={styles.container}>
+
+         <div>
+            <Link className={styles.link} to="/">
+               Home{" "}
+            </Link>
+            <span className={styles.categoryName}>/ Kitchen Tools</span>
+            <Heading size="lg" mt="10px" color="#0F346C">
+               Kitchen Tools
+            </Heading>
+            <br></br>
+            <div className={styles.blueLine}></div>
+            <br></br>
+         </div>
+         <div className={styles.sort_filter}>
+            <select onClick={(e) => setSortby(e.target.value)}>
+               <option value="">Sort By Price</option>
+               <option value="lh">Low to High</option>
+               <option value="hl">High to Low</option>
+            </select>
+         </div>
+         <div className={styles.cardContainer}>
+            {kitchentools?.map((kitchen) => (
+               <MealCard
+                  id={kitchen._id}
+                  image={kitchen.img[0].subImage}
+                  title={kitchen.name}
+                  // desc={wine.subDes}
+                  price={kitchen.price}
+               />
+            ))}
+         </div>
+         <br></br>
+         <br></br>
         <div>
           <Link className={styles.link} to="/">
             Home{" "}
@@ -98,6 +131,7 @@ function Kitchen() {
         </div>
         <br></br>
         <br></br>
+
 
         {/* category */}
         <SelectCategory />

@@ -1,8 +1,16 @@
+
+import { useToast } from '@chakra-ui/react'
+import React, { useEffect, useState } from 'react'
+import { useParams } from "react-router-dom"
+import Styles from "./Pantry.module.css"
+
+
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Styles from "./Pantry.module.css";
 import { Box } from "@chakra-ui/react";
 import { Skeleton, SkeletonCircle, SkeletonText } from "@chakra-ui/react";
+
 
 const SinglePantry = () => {
   const [pantry, setPantry] = useState();
@@ -35,6 +43,38 @@ const SinglePantry = () => {
     fetchData();
   }, [_id]);
   //   console.log(pantry);
+
+
+    const toast = useToast()
+  const addToBasket = ()=>{
+    
+    toast({
+      title: "Add to Basket",
+      description: "You Can See Cart Now",
+      variant: "subtle",
+      status:'success',
+      position: 'top-right',
+      duration: 3000,
+      isClosable: true,
+    })
+  }
+    return (
+        <div className={Styles.adjust}> 
+            <div>
+                <img className={Styles.image} src={pantry?.img[0].subImage} alt="Spice NO 1" />
+            </div>
+            <div>
+            <h2>{pantry?.name}</h2>
+               <div className={Styles.top}>
+                
+               <h2>Price ${pantry?.price}</h2>
+              <h3>{quan}</h3>
+             <button style={{backgroundColor:"#f26226",width:"25%",padding:"2px",border:"0px",color:"white",textAlign:"center",height:"auto",borderRadius:"3px"}} onClick={addToBasket}>ADD TO BASKET</button>
+               </div>
+            <div className={Styles.des}>
+                <h3>Description</h3>
+                <p>{pantry?.desc}</p>
+           <h3>Recipes</h3>
 
   if (isLoading) {
     return (
@@ -81,6 +121,7 @@ const SinglePantry = () => {
             <h3>Description</h3>
             <p>{pantry?.desc}</p>
             <h3>Recipes</h3>
+
             <p>
               Some favorite Blue Apron meals using our Spice Blends:
               Tuscan-Style Pork Chops with Roasted Potato & Salsa Verde Summer

@@ -1,3 +1,4 @@
+import { useToast } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useFetch } from "../Components/Custom Hooks/useFetch";
@@ -6,10 +7,24 @@ import { Skeleton, SkeletonCircle, SkeletonText } from "@chakra-ui/react";
 import Styles from "./Pantry.module.css";
 
 const SingleKitchen = () => {
+
   const [kitchen, setKitchen] = useState();
   const [quan, setQuan] = useState(1);
   const [isLoading, setIsLoading] = useState(true); //storing value for skeleton loading
   const { _id } = useParams();
+
+// console.log(_id)
+  const fetchData = async () => {
+  try {
+    let res = await fetch(
+      `https://dark-red-goshawk-gown.cyclic.app/kitchen/${_id}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: localStorage.getItem("token"),
+          "Content-Type": "Application/json",
+        },
+
   // console.log(_id)
   useEffect(() => {
     let fetchData = async () => {
@@ -30,10 +45,70 @@ const SingleKitchen = () => {
         setKitchen(data.msg);
       } catch (err) {
         console.log(err);
+
       }
-    };
+    );
+    let data = await res.json();
+    console.log(data);
+    setKitchen(data.msg);
+  } catch (err) {
+    console.log(err);
+  }
+};
+  useEffect(() => {
     fetchData();
   }, [_id]);
+
+
+  console.log(kitchen);
+  const toast = useToast()
+  const addToBasket = ()=>{
+    
+    toast({
+      title: "Add to Basket",
+      description: "You Can See Cart Now",
+      variant: "subtle",
+      status:'success',
+      position: 'top-right',
+      duration: 3000,
+      isClosable: true,
+    })
+  }
+  
+  return (
+    <div className={Styles.adjust}>
+      <div>
+        <img
+          className={Styles.image}
+          src={kitchen?.img[0].subImage}
+          alt="KITCHEN 1"
+        />
+      </div>
+      <div>
+        <h2>{kitchen?.name}</h2>
+        <div className={Styles.top}>
+          <h2>Price ${kitchen?.price}</h2>
+          <input
+            type="number"
+            value={quan}
+            style={{ width: "7%", height: "auto", textAlign: "center" }}
+          />
+          <button
+            style={{
+              backgroundColor: "#f26226",
+              width: "25%",
+              padding: "2px",
+              border: "0px",
+              color: "white",
+              textAlign: "center",
+              height: "auto",
+              borderRadius: "3px",
+            }}
+            onClick={()=>addToBasket}
+            >
+            ADD TO BASKET
+          </button>
+
   // console.log(kitchen);
 
   if (isLoading) {
@@ -56,6 +131,7 @@ const SingleKitchen = () => {
             src={kitchen?.img[0].subImage}
             alt="KITCHEN 1"
           />
+
         </div>
         <div>
           <h2>{kitchen?.name}</h2>
