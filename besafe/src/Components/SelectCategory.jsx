@@ -11,14 +11,14 @@ function SelectCategory() {
       <div className={styles.categoryList}>
         {/* Meal Kits */}
         <div>
-          <Link to="#">
+          <Link to="/mealkits">
             <img
               src="https://raw.githubusercontent.com/shubhamkr2/UploadImages/main/meal%20kits.webp"
               alt="Meal Kits"
             />
           </Link>
           <Flex>
-            <Link to="#">
+            <Link to="/mealkits">
               <Heading
                 mt={4}
                 p="2px"
@@ -40,14 +40,14 @@ function SelectCategory() {
         </div>
         {/* Wine */}
         <div>
-          <Link to="#">
+          <Link to="/winebundles">
             <img
               src="https://raw.githubusercontent.com/shubhamkr2/UploadImages/main/wine.jpg"
               alt="wine"
             />
           </Link>
           <Flex>
-            <Link to="#">
+            <Link to="/winebundles">
               <Heading
                 mt={4}
                 p="2px"
@@ -69,14 +69,14 @@ function SelectCategory() {
         </div>
         {/* Pantry */}
         <div>
-          <Link to="#">
+          <Link to="/pantry">
             <img
               src="https://raw.githubusercontent.com/shubhamkr2/UploadImages/main/pantry.jpeg"
               alt="pantry"
             />
           </Link>
           <Flex>
-            <Link to="#">
+            <Link to="/pantry">
               <Heading
                 mt={4}
                 p="2px"
@@ -98,14 +98,14 @@ function SelectCategory() {
         </div>
         {/* Kitchen */}
         <div>
-          <Link to="#">
+          <Link to="/kitchen">
             <img
               src="https://raw.githubusercontent.com/shubhamkr2/UploadImages/main/kitchen.jpg"
               alt="kitchen"
             />
           </Link>
           <Flex>
-            <Link to="#">
+            <Link to="/kitchen">
               <Heading
                 mt={4}
                 p="2px"
