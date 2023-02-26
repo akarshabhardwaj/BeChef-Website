@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styles from "./SingleMealProductPage.module.css";
 import { SocialFooter } from "../Components/SocialFooter";
+import { useParams } from "react-router-dom";
+
 import {
   Heading,
   Tab,
@@ -18,60 +20,39 @@ import {
 } from "@chakra-ui/react";
 
 // created a custom object with same schema for cheking UI
-let items = {
-  name: "Fireside Feast",
-  subDes:
-    "With Duck Cassoulet, Garlic Bread, Salad, Biscotti & Peppermint-Chocolate Dipping Sauce",
-  img: [
-    {
-      subImage:
-        "https://media.blueapron.com/agora/images/product/CCMK0001047/attachment/e584f8e1c5b42319df6aef2731668b73.jpeg?width=800",
-    },
-    {
-      subImage:
-        "https://media.blueapron.com/agora/images/product/CCMK0001047/attachment/62b4b5ab216bfe44901192a74a79b41f.jpeg?width=300",
-    },
-    {
-      subImage:
-        "https://media.blueapron.com/agora/images/product/CCMK0001047/attachment/be6a2994d2aab4062a5427a9bed20e2f.jpeg?width=300",
-    },
-    {
-      subImage:
-        "https://media.blueapron.com/agora/images/product/CCMK0001047/attachment/64cfabf5e3398c3221ee3cf1bba24d37.jpeg?width=300",
-    },
-  ],
-  price: 159.99,
-  des: "Live the après-ski lifestyle this winter with our limited-time Fireside Feast. Taking inspiration from classic French cuisine and cozy winter vibes, this menu was designed to warm you inside and out with an elevated restaurant-like experience you can recreate at home.",
-  listHead:
-    "The Fireside Feast includes serves 4-6 people and includes the ingredients and instructions to make the following:",
-  listContent: [
-    {
-      content:
-        "Duck Confit Cassoulet with Pork Belly, Beans & Thyme Breadcrumbs",
-    },
-    {
-      content: "Parmesan & Garlic-Herb Bread",
-    },
-    {
-      content: "Orange & Pistachio Salad with Dijon Vinaigrette",
-    },
-    {
-      content:
-        "Chocolate Chip & Almond Biscotti with Peppermint-Chocolate Dipping Sauce",
-    },
-  ],
-};
+
 
 function SingleMealProductPage() {
   const { isOpen, onOpen, onClose } = useDisclosure(); //To open or close modal of small product img
-  const [product, setProduct] = useState([items]); //paased custom obj to check UI
+  const [product, setProduct] = useState(); //paased custom obj to check UI
   const [qty, setQty] = useState(1);  //storing selected qty for a product
   const [modalImg, setModalImg] = useState(""); //storing modal img link on clicking on particular image
+  const { _id } = useParams();
 
-  useEffect(() => {
-    console.log(qty);
-  }, [qty]);
-
+  // console.log(_id)
+    useEffect(() => {
+      let fetchData = async () => {
+        try {
+          let res = await fetch(
+            `https://dark-red-goshawk-gown.cyclic.app/meals/${_id}`,
+            {
+              method: "GET",
+              headers: {
+                Authorization: localStorage.getItem("token"),
+                "Content-Type": "Application/json",
+              },
+            }
+          );
+          let data = await res.json();
+          console.log(data);
+          setProduct(data.msg);
+        } catch (err) {
+          console.log(err);
+        }
+      };
+      fetchData();
+    }, [_id]);
+    console.log(product);
   function handleModalImg(imgLink) {
     onOpen();
     setModalImg(imgLink);
@@ -81,16 +62,16 @@ function SingleMealProductPage() {
     // Main container
     <>
     <div className={styles.container}>
-      {product?.map((items) => (
+      {/* {product?.map((items) => ( */}
         <>
           <div className={styles.product_img}>
           {/************************** Showing big image  ************/}
-            <img src={items.img[0].subImage} alt="Product" />
+            <img src={product?.img[0].subImage} alt="Product" />
             <br></br>
             
               {/************** Showing all buttom small image *************/}
             <div className={styles.small_img}>
-                {items.img?.slice(1).map((img) => (
+            {product?.img.slice(1).map((img) => (
                   <>
                     <Image
                       // onClick={onOpen}
@@ -123,18 +104,18 @@ function SingleMealProductPage() {
             <div>
             {/* Showing name */}
               <Heading size="lg" mb="10px">
-                {items.name}  
+              {product?.name}  
               </Heading>
 
               {/* Showing Sub description after name */}
-              <p className={styles.highlights}>{items.subDes}</p>
+              <p className={styles.highlights}>{product?.subDes}</p>
             </div>
 
             {/******************** To show price, qty, addtocart btn ***********************/}
             <div className={styles.cart_box}>
               <p className={styles.price}>
                 <span>
-                  Price $<span>{items.price}</span>
+                  Price $<span>{product?.price}</span>
                 </span>
               </p>
               <select onChange={(e) => setQty(e.target.value)}>
@@ -149,12 +130,12 @@ function SingleMealProductPage() {
 
             {/****************** Long description ******************/}
             <div className={styles.description}>
-              <p>{items.des}</p>
+              <p>{product?.des}</p>
               <br></br>
-              <p>{items.listHead}</p>
+              <p>{product?.listHead}</p>
               <br></br>
               <div>
-                {items.listContent?.map((list) => (
+              {product?.listContent?.map((list) => (
                   <>
                     <li>{list.content}</li>
                   </>
@@ -211,7 +192,7 @@ function SingleMealProductPage() {
             </div>
           </div>
         </>
-      ))}
+      {/* ))} */}
     </div>
   <SocialFooter />
   </>
