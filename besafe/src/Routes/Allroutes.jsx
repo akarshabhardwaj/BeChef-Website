@@ -1,6 +1,15 @@
 import React from 'react'
 import { Routes, Route } from "react-router-dom"
+
+import AddProducts from '../Admin Panel/Dashboard/AddProducts/AddProducts'
+import AllProducts from '../Admin Panel/Dashboard/AllProducts/AllProducts'
+import DeleteProducts from '../Admin Panel/Dashboard/DeleteProducts/DeleteProducts'
+import UpdateProduct from '../Admin Panel/Dashboard/UpdateProducts/UpdateProduct'
+import AdminLogin from '../Admin Panel/Login/AdminLogin'
+// import PrivateRoute from "../Components/PrivateRoute"
+
 import PrivateRoute from "./PrivateRoute/PrivateRoute"
+
 import Home from "../Pages/Home"
 import Kitchen from "../Pages/Kitchen"
 import { MealKits } from "../Pages/MealKits"
@@ -16,6 +25,14 @@ import { SingleWineProductPage } from '../SinglrProdctPages/SingleWineProductPag
 const AllRoutes = () => {
   return (
     <Routes>
+
+     
+      <Route path="/adminlogin" element={<AdminLogin/>} />
+      <Route path="/admin" element={<AllProducts/>} />
+      <Route path='/add' element={<AddProducts/>}/>
+    <Route path='/update' element={<UpdateProduct/>}/>
+    <Route path='/delete' element={<DeleteProducts/>}/>
+
       <Route path="/" element={<Home />} />
       <Route path="/kitchen" element={
         <PrivateRoute>
@@ -65,6 +82,7 @@ const AllRoutes = () => {
       <Route path='/login' element={
           <Login />
       } />
+
     </Routes>
   )
 }

@@ -4,12 +4,6 @@ import Footer from './Components/Footer/Footer';
 import Home from './Pages/Home';
 
 import AdminRoutes from './Admin Panel/AdminRoutes/AdminRoutes';
-
-
-
-
-
-
 import Cart from './Pages/Cart';
 import AllRoutes from './Routes/Allroutes';
 
@@ -21,12 +15,12 @@ function App() {
       {/* <Navbar/>
       <Home/>
       <Footer/> */}
-   <AdminRoutes/>
+   
 
       <Navbar/>
       <AllRoutes/>
       {/* <Home/> */}
-      {/* <Cart/> */}
+      {/* <Cart/><AdminRoutes/> */}
       <Footer/>
 
     </div>
