@@ -12,7 +12,7 @@ const[wine,setWine]=useState([])
 const getData=()=>{
 
     //!Pnatry Routes for fteching Pantry Products
-    fetch("http://localhost:8080/admin/pantrypro",{
+    fetch("https://dark-red-goshawk-gown.cyclic.app/admin/pantrypro",{
         method:"GET",
         headers:{
             Authorization:"cheftoken",
@@ -25,7 +25,7 @@ const getData=()=>{
 
 //!kitchen Routes for fetching Kitchen Products
 
-    fetch("http://localhost:8080/admin/kitchenpro",{
+    fetch("https://dark-red-goshawk-gown.cyclic.app/admin/kitchenpro",{
         method:"GET",
         headers:{
             Authorization:"cheftoken",
@@ -38,7 +38,7 @@ const getData=()=>{
 
 //!Meals Routes
 
-fetch("http://localhost:8080/admin/mealpro",{
+fetch("https://dark-red-goshawk-gown.cyclic.app/admin/mealpro",{
     method:"GET",
     headers:{
         Authorization:"cheftoken",
@@ -51,7 +51,7 @@ then((res)=>setMeal(res.msg))
 
 //!Wines Route
 
-fetch("http://localhost:8080/admin/winepro",{
+fetch("https://dark-red-goshawk-gown.cyclic.app/admin/winepro",{
     method:"GET",
     headers:{
         Authorization:"cheftoken",
@@ -68,7 +68,7 @@ then((res)=>setWine(res.msg))
 const HandleDelete=async (id,cate)=>{
     console.log(id,cate)
  if(cate==="meal"){
-  let res=await   fetch(`http://localhost:8080/admin/mealdelete/${id}`,{
+  let res=await   fetch(`https://dark-red-goshawk-gown.cyclic.app/admin/mealdelete/${id}`,{
         method:"DELETE",
         headers:{
             "Content-tpye":"application/json",
@@ -79,7 +79,7 @@ const HandleDelete=async (id,cate)=>{
     console.log(response)
     alert(response.msg)
  }else if(cate==="pantry"){
-    let res=await   fetch(`http://localhost:8080/admin/pantrydelete/${id}`,{
+    let res=await   fetch(`https://dark-red-goshawk-gown.cyclic.app/admin/pantrydelete/${id}`,{
         method:"DELETE",
         headers:{
             "Content-tpye":"application/json",
@@ -91,7 +91,7 @@ const HandleDelete=async (id,cate)=>{
     alert(response.msg)
  }
  else if(cate==="kitchen"){
-    let res=await   fetch(`http://localhost:8080/admin/kitchendelete/${id}`,{
+    let res=await   fetch(`https://dark-red-goshawk-gown.cyclic.app/admin/kitchendelete/${id}`,{
         method:"DELETE",
         headers:{
             "Content-tpye":"application/json",
@@ -104,7 +104,7 @@ const HandleDelete=async (id,cate)=>{
  }
  else if(cate==="wine"){
     console.log("wine")
-    let res=await   fetch(`http://localhost:8080/admin/winedelete/${id}`,{
+    let res=await   fetch(`https://dark-red-goshawk-gown.cyclic.app/admin/winedelete/${id}`,{
         method:"DELETE",
         headers:{
             "Content-tpye":"application/json",

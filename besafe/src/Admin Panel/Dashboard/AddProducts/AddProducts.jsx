@@ -24,7 +24,7 @@ const AddProducts = () => {
     console.log(payload)
     //!Pantry Data added
     if (cat === "pantry") {
-      let res = await fetch(`http://localhost:8080/admin/pantry`, {
+      let res = await fetch(`https://dark-red-goshawk-gown.cyclic.app/admin/pantry`, {
         method: "POST",
         headers: {
           Authorization: "cheftoken",
@@ -38,7 +38,7 @@ const AddProducts = () => {
     }
     //!kitchen Data Added
     else if (cat === "kitchen") {
-      let res = await fetch(`http://localhost:8080/admin/kitchen`, {
+      let res = await fetch(`https://dark-red-goshawk-gown.cyclic.app/admin/kitchen`, {
         method: "POST",
         headers: {
           Authorization: "cheftoken",
@@ -52,7 +52,7 @@ const AddProducts = () => {
     }
     //!wine data added
     else if (cat === "wine") {
-      let res = await fetch(`http://localhost:8080/admin/wine`, {
+      let res = await fetch(`https://dark-red-goshawk-gown.cyclic.app/admin/wine`, {
         method: "POST",
         headers: {
           Authorization: "cheftoken",
@@ -66,7 +66,7 @@ const AddProducts = () => {
     }
     //!Meals Data Added through pantry
     else if (cat === "meal") {
-      let res = await fetch(`http://localhost:8080/admin/meal`, {
+      let res = await fetch(`https://dark-red-goshawk-gown.cyclic.app/admin/meal`, {
         method: "POST",
         headers: {
           Authorization: "cheftoken",

@@ -35,7 +35,7 @@ export default function AdminLogin() {
         //         if(out.msg==="Welcome Admin"){
         //    setForward(true)
      
-        fetch("http://localhost:8080/admin/login", {
+        fetch("https://dark-red-goshawk-gown.cyclic.app/admin/login", {
             method: "POST",
             body: JSON.stringify({email,pass}),
             headers: {

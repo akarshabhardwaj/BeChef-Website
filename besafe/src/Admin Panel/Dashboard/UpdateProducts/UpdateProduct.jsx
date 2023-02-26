@@ -13,7 +13,7 @@ const[wine,setWine]=useState([])
 const getData=()=>{
 
     //!Pnatry Routes for fteching Pantry Products
-    fetch("http://localhost:8080/admin/pantrypro",{
+    fetch("https://dark-red-goshawk-gown.cyclic.app/admin/pantrypro",{
         method:"GET",
         headers:{
             Authorization:"cheftoken",
@@ -26,7 +26,7 @@ const getData=()=>{
 
 //!kitchen Routes for fetching Kitchen Products
 
-    fetch("http://localhost:8080/admin/kitchenpro",{
+    fetch("https://dark-red-goshawk-gown.cyclic.app/admin/kitchenpro",{
         method:"GET",
         headers:{
             Authorization:"cheftoken",
@@ -39,7 +39,7 @@ const getData=()=>{
 
 //!Meals Routes
 
-fetch("http://localhost:8080/admin/mealpro",{
+fetch("https://dark-red-goshawk-gown.cyclic.app/admin/mealpro",{
     method:"GET",
     headers:{
         Authorization:"cheftoken",
@@ -52,7 +52,7 @@ then((res)=>setMeal(res.msg))
 
 //!Wines Route
 
-fetch("http://localhost:8080/admin/winepro",{
+fetch("https://dark-red-goshawk-gown.cyclic.app/admin/winepro",{
     method:"GET",
     headers:{
         Authorization:"cheftoken",
@@ -70,7 +70,7 @@ const HandleUpdate=async (id,cate,title)=>{
     console.log(id,cate,title)
 
  if(cate==="meal"){
-  let res=await   fetch(`http://localhost:8080/admin/mealupdate/${id}`,{
+  let res=await   fetch(`https://dark-red-goshawk-gown.cyclic.app/admin/mealupdate/${id}`,{
         method:"PATCH",
         headers:{
             "Content-type":"application/json",
@@ -86,7 +86,7 @@ const HandleUpdate=async (id,cate,title)=>{
  
  else if(cate==="pantry"){
   console.log({name:title})
-    fetch(`http://localhost:8080/admin/pantryupdate/${id}`,{
+    fetch(`https://dark-red-goshawk-gown.cyclic.app/admin/pantryupdate/${id}`,{
         method:"PATCH",
         headers:{
             "Content-type":"application/json",
@@ -102,7 +102,7 @@ const HandleUpdate=async (id,cate,title)=>{
     getData()
  }
  else if(cate==="kitchen"){
-    let res=await   fetch(`http://localhost:8080/admin/kitchenupdate/${id}`,{
+    let res=await   fetch(`https://dark-red-goshawk-gown.cyclic.app/admin/kitchenupdate/${id}`,{
         method:"PATCH",
         headers:{
             "Content-tpye":"application/json",
@@ -116,7 +116,7 @@ const HandleUpdate=async (id,cate,title)=>{
  }
  else if(cate==="wine"){
     console.log("wine")
-    let res=await   fetch(`http://localhost:8080/admin/wineupdate/${id}`,{
+    let res=await   fetch(`https://dark-red-goshawk-gown.cyclic.app/admin/wineupdate/${id}`,{
         method:"PATCH",
         headers:{
             "Content-type":"application/json",

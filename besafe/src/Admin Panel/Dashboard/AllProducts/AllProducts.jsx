@@ -12,7 +12,7 @@ const[wine,setWine]=useState([])
 const getData=()=>{
 
     //!Pnatry Routes for fteching Pantry Products
-    fetch("http://localhost:8080/admin/pantrypro",{
+    fetch("https://dark-red-goshawk-gown.cyclic.app/admin/pantrypro",{
         method:"GET",
         headers:{
             Authorization:"cheftoken",
@@ -25,7 +25,7 @@ const getData=()=>{
 
 //!kitchen Routes for fetching Kitchen Products
 
-    fetch("http://localhost:8080/admin/kitchenpro",{
+    fetch("https://dark-red-goshawk-gown.cyclic.app/admin/kitchenpro",{
         method:"GET",
         headers:{
             Authorization:"cheftoken",
@@ -38,7 +38,7 @@ const getData=()=>{
 
 //!Meals Routes
 
-fetch("http://localhost:8080/admin/mealpro",{
+fetch("https://dark-red-goshawk-gown.cyclic.app/admin/mealpro",{
     method:"GET",
     headers:{
         Authorization:"cheftoken",
@@ -51,7 +51,7 @@ then((res)=>setMeal(res.msg))
 
 //!Wines Route
 
-fetch("http://localhost:8080/admin/winepro",{
+fetch("https://dark-red-goshawk-gown.cyclic.app/admin/winepro",{
     method:"GET",
     headers:{
         Authorization:"cheftoken",
