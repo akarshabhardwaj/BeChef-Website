@@ -71,7 +71,7 @@ function SingleWineProductPage() {
               <div className={styles.cart_box}>
                 <p className={styles.price}>
                   <span>
-                    Price $<span>{product?.name}</span>
+                    Price $<span>{product?.price}</span>
                   </span>
                 </p>
                 <select onChange={(e) => setQty(e.target.value)}>
