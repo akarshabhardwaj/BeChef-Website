@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Kitchen.module.css";
 import { Link } from "react-router-dom";
 import { Heading, Box } from "@chakra-ui/react";
@@ -37,7 +37,18 @@ function Kitchen() {
       }
     };
     fetchData();
-  }, []);
+  }, [sortby]);
+
+    if (sortby === "lh") {
+      kitchentools.sort((a, b) => {
+        return a.price - b.price;
+      });
+    } else if(sortby === "hl") {
+      kitchentools.sort((a, b) => {
+        return b.price - a.price;
+      });
+    } 
+  
 
   if (isLoading) {
     return (
@@ -73,6 +84,7 @@ function Kitchen() {
           </select>
         </div>
         <div className={styles.cardContainer}>
+        
           {kitchentools?.map((kitchen) => (
             <MealCard
               key={kitchen._id}

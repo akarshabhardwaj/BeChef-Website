@@ -38,7 +38,19 @@ function WineBundles() {
       }
     };
     fetchData();
-  }, []);
+  }, [sortby]);
+
+  if (sortby === "lh") {
+    wineBundles.sort((a, b) => {
+      return a.price - b.price;
+    });
+  } else if (sortby === "hl") {
+    wineBundles.sort((a, b) => {
+      return b.price - a.price;
+    });
+  }
+
+  console.log(wineBundles);
 
   if (isLoading) {
     return (

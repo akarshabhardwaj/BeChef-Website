@@ -34,7 +34,17 @@ function MealKits() {
       }
     };
     fetchData();
-  }, []);
+  }, [sortby]);
+
+  if (sortby === "lh") {
+    mealKits.sort((a, b) => {
+      return a.price - b.price;
+    });
+  } else if (sortby === "hl") {
+    mealKits.sort((a, b) => {
+      return b.price - a.price;
+    });
+  }
 
   if (isLoading) {
     return (
@@ -65,7 +75,7 @@ function MealKits() {
         </div>
         <div className={styles.sort_filter}>
           <select onClick={(e) => setSortby(e.target.value)}>
-            <option value="">Price</option>
+            <option value="">Sort By Price</option>
             <option value="lh">Low to High</option>
             <option value="hl">High to Low</option>
           </select>
@@ -99,4 +109,3 @@ function MealKits() {
 }
 
 export { MealKits };
- 
