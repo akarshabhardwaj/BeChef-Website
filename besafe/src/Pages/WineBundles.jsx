@@ -74,7 +74,7 @@ function WineBundles() {
           <MealCard
             id={wine._id}
             image={wine.img[0].subImage}
-            title={wine.name}
+            title={wine.name+" "+wine.milliliter+"ml"}
             // desc={wine.subDes}
             price={wine.price}
           />
