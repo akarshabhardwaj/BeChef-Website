@@ -22,7 +22,6 @@ function SingleWineProductPage() {
   const [qty, setQty] = useState(1); //storing selected qty for a product
   const { _id } = useParams();
   const toast = useToast()
- // console.log(_id)
  useEffect(() => {
   let fetchData = async () => {
     try {

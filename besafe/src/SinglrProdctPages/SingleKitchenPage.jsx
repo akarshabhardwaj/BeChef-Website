@@ -36,7 +36,6 @@ const SingleKitchen = () => {
   console.log(kitchen);
   const toast = useToast()
   const addToBasket = ()=>{
-    
     toast({
       title: "Add to Basket",
       description: "You Can See Cart Now",
