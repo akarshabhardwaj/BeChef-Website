@@ -9,9 +9,6 @@ import { cartActions, cartValue } from "../Redux/Cart/Cart.actions";
 const Index = () => {
     const [item, setItem] = React.useState([]);
     const [discount, setDiscount] = React.useState(0);
-    const [delivery, setDelivery] = React.useState(0);
-    const [subTotal, setSubTotal] = React.useState(0);
-    const [total, setTotal] = React.useState(0);
     const toast = useToast();
     
     const {loading , error, cartData,totalPrice} = useSelector((store) => store.cart);

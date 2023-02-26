@@ -1,7 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+
+
 #footer{
     padding: 20px;
     background-color: #0f346c;
     color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem
 }
 
 .footerBox{
@@ -13,12 +19,14 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    font-size: 20px;
 }
 
 .flex{
     display: flex;
     flex-direction: column;
     text-align: justify;
+    
 }
 
 .footerdetails{
@@ -37,6 +45,10 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+#imgDiv{
+    width:10%;
 }
 
 /* Tablet */
@@ -77,6 +89,7 @@
     }
 
     #imgDiv{
+
         display: flex;
         align-items:center;
         justify-content: center;

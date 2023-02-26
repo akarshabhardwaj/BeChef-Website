@@ -1,12 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable react/jsx-no-comment-textnodes */
 import React from 'react'
-
-import {
-     Text
-} from "@chakra-ui/react"
-
-
 import logo from '../Assets/logowhite.webp.webp'
 
 import "./Footer.css"
@@ -21,55 +15,55 @@ const Footer = () => {
                     <img className='imageclass' src={logo}/>
                 </div>
                 <div className='flex'>
-                    <Text>On the Menu</Text>
-                    <Text>Pricing</Text>
-                    <Text>Our Vision</Text>
-                    <Text>Wine</Text>
-                    <Text>Market</Text>
-                    <Text>Gift Cards</Text>
-                    <Text>Blog</Text>
-                    <Text>Cookbook</Text>
+                    <div>On the Menu</div>
+                    <div>Pricing</div>
+                    <div>Our Vision</div>
+                    <div>Wine</div>
+                    <div>Market</div>
+                    <div>Gift Cards</div>
+                    <div>Blog</div>
+                    <div>Cookbook</div>
                 </div>
                 <div className='flex'>
-                    <Text>Suppliers</Text>
-                    <Text>Affiliates</Text>
-                    <Text>Supply Chains Act</Text>
-                    <Text>Food Safety</Text>
-                    <Text>Career</Text>
-                    <Text>Press</Text>
-                    <Text>Our Team</Text>
-                    <Text>Investor Relations</Text>
+                    <div>Suppliers</div>
+                    <div>Affiliates</div>
+                    <div>Supply Chains Act</div>
+                    <div>Food Safety</div>
+                    <div>Career</div>
+                    <div>Press</div>
+                    <div>Our Team</div>
+                    <div>Investor Relations</div>
                 </div>
                 <div className='flex' >
-                    <Text>Military & Veterans</Text>
-                    <Text>Students</Text>
-                    <Text>Teachers</Text>
-                    <Text>Seniors (+55)</Text>
-                    <Text>Medical Staff</Text>
-                    <Text>First Responders</Text>
+                    <div>Military & Veterans</div>
+                    <div>Students</div>
+                    <div>Teachers</div>
+                    <div>Seniors (+55)</div>
+                    <div>Medical Staff</div>
+                    <div>First Responders</div>
                 </div>
 
                 <div className='flex' >
-                    <Text as={'h2'} fontWeight='bold'>Customer Support</Text>
-                    <Text>Help Center & FAQ</Text>
-                    <Text>contact@bechef.com</Text>
-                    <Text>(646) 891-4349</Text>
+                    <div>Customer Support</div>
+                    <div>Help Center & FAQ</div>
+                    <div>contact@bechef.com</div>
+                    <div>(646) 891-4349</div>
                 </div>
             </div>
             
             <div className='footerdetails'>
                 
                 <div id='detail'>
-                    <Text  fontWeight='bold' marginRight={'10px'}>© Be Chef, LLC 2023</Text>
-                    <Text>
-                    Do Not Sell or Share My Info | Ad Preferences | Privacy | Terms</Text>
+                    <p  fontWeight='bold' marginRight={'10px'}>© Be Chef, LLC 2023</p>
+                    <p>
+                    Do Not Sell or Share My Info | Ad Preferences | Privacy | Terms</p>
                 </div>
                 <div >
                         <img style={{width:'70%'}} src="https://global.discourse-cdn.com/turtlehead/original/2X/e/ee0e6fd4d6ad3283ce1b38e28481a51cb25a9dac.png" alt="google"/>
                 </div>
             </div>
             
-            <Text>If you are using a screen reader and are having problems using this website, please call1-844-462-8299for assistance.</Text>
+            <p>If you are using a screen reader and are having problems using this website, please call1-844-462-8299for assistance.</p>
         </div>
     </div>
   )
