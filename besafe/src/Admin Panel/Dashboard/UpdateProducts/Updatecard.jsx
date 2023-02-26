@@ -11,7 +11,7 @@ const UpdateCard = ({name,img,desc,price,HandleUpdate,_id,cate}) => {
 const HandleSubmit=()=>{
     HandleUpdate(_id,cate,title)
 }
-  console.log(title)
+//   console.log(title)
   return (
     <div>
         <div className={Styles.child}>
