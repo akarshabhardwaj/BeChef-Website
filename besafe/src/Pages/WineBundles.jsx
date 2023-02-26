@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./WineBundles.module.css";
 import { Link } from "react-router-dom";
 import { Heading, Box } from "@chakra-ui/react";
@@ -7,8 +7,10 @@ import { SelectCategory } from "../Components/SelectCategory";
 import { SocialFooter } from "../Components/SocialFooter";
 import { Skeleton, SkeletonCircle, SkeletonText } from "@chakra-ui/react";
 
+let filtered = [];
 function WineBundles() {
   const [wineBundles, setWineBundles] = useState([]);
+  // const [filtered, setFiltered] = useState([]);
   const [sortby, setSortby] = useState(""); //storing value for sorting
   const [filterbypack, setFilterbypack] = useState(""); //storing value for filter as pack
   const [filterbysize, setFilterbysize] = useState(""); //storing value for filter as size
@@ -33,6 +35,7 @@ function WineBundles() {
         //   console.log(data);
         setIsLoading(false);
         setWineBundles(data.msg);
+        filtered = [...data.msg];
       } catch (err) {
         console.log(err);
       }
@@ -40,17 +43,72 @@ function WineBundles() {
     fetchData();
   }, [sortby]);
 
+  //sorting
   if (sortby === "lh") {
     wineBundles.sort((a, b) => {
+      return a.price - b.price;
+    });
+    filtered.sort((a, b) => {
       return a.price - b.price;
     });
   } else if (sortby === "hl") {
     wineBundles.sort((a, b) => {
       return b.price - a.price;
     });
+    filtered.sort((a, b) => {
+      return b.price - a.price;
+    });
   }
 
-  console.log(wineBundles);
+  //filtering
+  useEffect(() => {
+    let temp = [];
+    if (filterbysize === "500") {
+      temp = filtered.filter((prod) => {
+        return prod.milliliter <= 500;
+      });
+      setWineBundles(temp);
+      console.log(temp);
+    } else if (filterbysize === "750") {
+      temp = filtered.filter((prod) => {
+        return prod.milliliter <= 750;
+      });
+      setWineBundles(temp);
+    } else if (filterbysize === "500-1000") {
+      temp = filtered.filter((prod) => {
+        return prod.milliliter >= 500 && prod.milliliter <= 1000;
+      });
+      setWineBundles(temp);
+    }
+    if (filterbypack === "3") {
+      if (temp.length === 0) {
+        temp = filtered.filter((prod) => {
+          return prod.pack === 3;
+        });
+        setWineBundles(temp);
+      } else {
+        let temp2 = temp.filter((prod) => {
+          return prod.pack === 3;
+        });
+        setWineBundles(temp2);
+      }
+    } else if (filterbypack === "6") {
+      if (temp.length === 0) {
+        temp = filtered.filter((prod) => {
+          return prod.pack === 6;
+        });
+        setWineBundles(temp);
+      } else {
+        let temp2 = temp.filter((prod) => {
+          return prod.pack === 6;
+        });
+        setWineBundles(temp2);
+      }
+    }
+    if (filterbysize === "" && filterbypack === "") {
+      setWineBundles(filtered);
+    }
+  }, [filterbysize, filterbypack]);
 
   if (isLoading) {
     return (
