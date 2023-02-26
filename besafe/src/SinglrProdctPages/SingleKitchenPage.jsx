@@ -34,7 +34,9 @@ const SingleKitchen = () => {
   }, [_id]);
 
   console.log(kitchen);
+
   const toast = useToast()
+  
   const addToBasket = ()=>{
     toast({
       title: "Add to Basket",
