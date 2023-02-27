@@ -58,7 +58,7 @@ const AddProducts = () => {
           Authorization: "cheftoken",
           "Content-type": "application/json"
         },
-        body: JSON.stringify({ name, img: Images, price, pack: 2, milliliter: 500, des: [{ subDes: desc }] })
+        body: JSON.stringify({ name, img: Images, price,cate:cat, pack: 2, milliliter: 500, des: [{ subDes: desc }] })
       })
       let response = await res.json()
       console.log(response)
@@ -72,7 +72,7 @@ const AddProducts = () => {
           Authorization: "cheftoken",
           "Content-type": "application/json"
         },
-        body: JSON.stringify({ name, img: Images, price, des: desc, subDes: "With Duck Cassoulet, Garlic Bread, Salad, Biscotti & Peppermint-Chocol…", listHead: "The Fireside Feast includes serves 4-6 people and includes the ingredients and instructions to make the following:", listContent: [{ content: "Duck Confit Cassoulet with Pork Belly, Beans & Thyme Breadcrumbs" }] })
+        body: JSON.stringify({ name, img: Images, price,cate:cat, des: desc, subDes: "With Duck Cassoulet, Garlic Bread, Salad, Biscotti & Peppermint-Chocol…", listHead: "The Fireside Feast includes serves 4-6 people and includes the ingredients and instructions to make the following:", listContent: [{ content: "Duck Confit Cassoulet with Pork Belly, Beans & Thyme Breadcrumbs" }] })
       })
       let response = await res.json()
       console.log(response)
