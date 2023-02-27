@@ -19,7 +19,7 @@ const AddProducts = () => {
     Images.push({ subImage: image })
     // console.log(name,desc,price,image,cat)
     const payload = {
-      name, desc, price, img: Images
+      name, desc, price, img: Images,cate:cat
     }
     console.log(payload)
     //!Pantry Data added
