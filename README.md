@@ -1,11 +1,12 @@
 # BeChef 
 # BeChef_OverView
+#Team Members:Akarsha Bhardwaj(Lead),RajKumar Pradhan, Shubham Singh , Kiran Wankhade
 
 This is the photos of the Bechef website. Bechef is an online Ecommerce Website which is providing high quality food products as well as easy to cook meals. From this website, users can Order food products cooked as well as raw and much more across the world.
 
 **To see the live site click the below link.**
 
-https://funny-pegasus-c3b55b.netlify.app/
+https://famous-phoenix-682490.netlify.app
 
 ## Built with
 <ul>
