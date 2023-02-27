@@ -38,9 +38,28 @@ const AllRoutes = () => {
           <AllProducts/>
         </PrivateAdminRoute>
       } />
-      <Route path='/add' element={<AddProducts/>}/>
-    <Route path='/update' element={<UpdateProduct/>}/>
-    <Route path='/delete' element={<DeleteProducts/>}/>
+
+<Route path="/add" element={
+        <PrivateAdminRoute>
+         <AddProducts/>
+        </PrivateAdminRoute>
+      } />
+     {/* // <Route path='/add' element={<AddProducts/>}/> */}
+
+     <Route path="/update" element={
+        <PrivateAdminRoute>
+         <UpdateProduct/>
+        </PrivateAdminRoute>
+      } />
+
+<Route path="/delete" element={
+        <PrivateAdminRoute>
+         <DeleteProducts/>
+        </PrivateAdminRoute>
+      } />
+     
+    {/* <Route path='/update' element={<UpdateProduct/>}/> */}
+    {/* <Route path='/delete' element={<DeleteProducts/>}/> */}
 
       <Route path="/" element={<Home />} />
       <Route path='/address' element={<Address/>}/>

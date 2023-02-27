@@ -71,7 +71,7 @@ const HandleDelete=async (id,cate)=>{
   let res=await   fetch(`https://dark-red-goshawk-gown.cyclic.app/admin/mealdelete/${id}`,{
         method:"DELETE",
         headers:{
-            "Content-tpye":"application/json",
+            "Content-type":"application/json",
             Authorization:"cheftoken"
         }
     })
@@ -82,7 +82,7 @@ const HandleDelete=async (id,cate)=>{
     let res=await   fetch(`https://dark-red-goshawk-gown.cyclic.app/admin/pantrydelete/${id}`,{
         method:"DELETE",
         headers:{
-            "Content-tpye":"application/json",
+            "Content-type":"application/json",
             Authorization:"cheftoken"
         }
     })
@@ -94,7 +94,7 @@ const HandleDelete=async (id,cate)=>{
     let res=await   fetch(`https://dark-red-goshawk-gown.cyclic.app/admin/kitchendelete/${id}`,{
         method:"DELETE",
         headers:{
-            "Content-tpye":"application/json",
+            "Content-type":"application/json",
             Authorization:"cheftoken"
         }
     })
@@ -107,7 +107,7 @@ const HandleDelete=async (id,cate)=>{
     let res=await   fetch(`https://dark-red-goshawk-gown.cyclic.app/admin/winedelete/${id}`,{
         method:"DELETE",
         headers:{
-            "Content-tpye":"application/json",
+            "Content-type":"application/json",
             Authorization:"cheftoken"
         }
     })

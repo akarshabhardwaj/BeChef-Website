@@ -3,6 +3,7 @@ import Styles from "./DeleteProduct.module.css"
 import { useToast } from '@chakra-ui/react'
 
 const DeleteCard = ({name,img,desc,price,HandleDelete,_id,cate}) => {
+  console.log(cate)
   const toast=useToast()
   return (
     <div>

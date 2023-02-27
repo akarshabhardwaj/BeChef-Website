@@ -92,7 +92,7 @@ const HandleUpdate=async (id,cate,title)=>{
             "Content-type":"application/json",
              Authorization:"cheftoken"
         },
-        body:JSON.stringify({"name":title})
+        body:JSON.stringify({name:title})
     }).then((res)=>res.json())
     .then((res)=>{console.log(res)
       alert(res.msg)
@@ -102,10 +102,10 @@ const HandleUpdate=async (id,cate,title)=>{
     getData()
  }
  else if(cate==="kitchen"){
-    let res=await   fetch(`https://dark-red-goshawk-gown.cyclic.app/admin/kitchenupdate/${id}`,{
+    let res=await  fetch(`https://dark-red-goshawk-gown.cyclic.app/admin/kitchenupdate/${id}`,{
         method:"PATCH",
         headers:{
-            "Content-tpye":"application/json",
+            "Content-type":"application/json",
             Authorization:"cheftoken"
         },
         body:JSON.stringify({name:title})

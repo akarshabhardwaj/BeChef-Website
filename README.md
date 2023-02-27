@@ -76,7 +76,7 @@ https://funny-pegasus-c3b55b.netlify.app/
 ## Delete Page Admin
 <img src="./screenshot/deletepageadmin.jpg">
 
-## HomePage
+## HomePage done
 <img src="./screenshot/homepage.jpg">
 
 ## Login Page

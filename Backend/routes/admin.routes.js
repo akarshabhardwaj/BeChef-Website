@@ -302,6 +302,7 @@ AdminRoute.get("/mealpro",async (req,res)=>{
 
 AdminRoute.delete("/mealdelete/:id",async (req,res)=>{
     const Id=req.params.id;
+    console.log(Id)
     const token=req.headers.authorization
     try {
         if(token==="cheftoken"){

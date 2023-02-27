@@ -41,6 +41,20 @@ import { useSelector } from "react-redux";
       e.preventDefault();
       onOpen();
     };
+
+    const clearcart=async ()=>{
+let res=await fetch("https://dark-red-goshawk-gown.cyclic.app/cart/deletecheckout",{
+  method:"DELETE",
+  headers:{
+    Authorization:localStorage.getItem("token"),
+    "Content-type":"application/json"
+  }
+})
+
+let data=await res.json()
+console.log(data)
+
+    }
   
     return (
       <div>
@@ -205,7 +219,7 @@ import { useSelector } from "react-redux";
                 </div>
               </div>
   
-              <button style={{backgroundColor:'#0f346c'}}>Submit Payment</button>
+              <button onClick={clearcart} style={{backgroundColor:'#0f346c'}}>Submit Payment</button>
             </form>
           </div>
   
