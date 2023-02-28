@@ -95,20 +95,21 @@ https://famous-phoenix-682490.netlify.app
 ## HomePage done
 <img src="./screenshot/homepage.jpg">
 
-## CartPage
-<img src="./screenshot/cartpage.jpg">
-
-## Category Page
-<img src="./screenshot/category2.jpg">
-<img src="./screenshot/category.jpg">
-
-## CheckoutPage
-<img src="./screenshot/checkoutpage.jpg">
-
 ## Login Page
 <img src="./screenshot/login.jpg">
 
-## Single Page
+## Category Page
+<img src="./screenshot/category.jpg">
+
+## Single Product Page
 <img src="./screenshot/singlepage.jpg">
 
+## Cart Page
+<img src="./screenshot/cartpage.jpg">
+
+## Checkout Page
+<img src="./screenshot/checkoutpage.jpg">
+
+## Payment Page
+<img src="./screenshot/PaymentPage.jpg">
 ### Thanks for reading
