@@ -92,6 +92,9 @@ https://famous-phoenix-682490.netlify.app
 ## Update Page Admin
 <img src="./screenshot/updatepageadmin.jpg">
 
+## HomePage done
+<img src="./screenshot/homepage.jpg">
+
 ## CartPage
 <img src="./screenshot/cartpage.jpg">
 
@@ -101,9 +104,6 @@ https://famous-phoenix-682490.netlify.app
 
 ## CheckoutPage
 <img src="./screenshot/checkoutpage.jpg">
-
-## HomePage done
-<img src="./screenshot/homepage.jpg">
 
 ## Login Page
 <img src="./screenshot/login.jpg">
