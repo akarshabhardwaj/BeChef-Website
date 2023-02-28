@@ -77,16 +77,20 @@ https://famous-phoenix-682490.netlify.app
 
 ## Some screenshots of the project
 
+## Admin Login Page
+<img src="./screenshot/adminlogin.jpg">
+
+## Admin Page Home
+<img src="./screenshot/adminpagehome.jpg">
 
 ## AddPageAdmin
 <img src="./screenshot/addpageadmin.jpg">
 
-## Admin Login Page
-<img src="./screenshot/adminlogin.jpg">
+## Delete Page Admin
+<img src="./screenshot/deletepageadmin.jpg">
 
-
-## Admin Page Home
-<img src="./screenshot/adminpagehome.jpg">
+## Update Page Admin
+<img src="./screenshot/updatepageadmin.jpg">
 
 ## CartPage
 <img src="./screenshot/cartpage.jpg">
@@ -98,9 +102,6 @@ https://famous-phoenix-682490.netlify.app
 ## CheckoutPage
 <img src="./screenshot/checkoutpage.jpg">
 
-## Delete Page Admin
-<img src="./screenshot/deletepageadmin.jpg">
-
 ## HomePage done
 <img src="./screenshot/homepage.jpg">
 
@@ -109,10 +110,5 @@ https://famous-phoenix-682490.netlify.app
 
 ## Single Page
 <img src="./screenshot/singlepage.jpg">
-
-
-## Update Page Admin
-<img src="./screenshot/updatepageadmin.jpg">
-
 
 ### Thanks for reading
