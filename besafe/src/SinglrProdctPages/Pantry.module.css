@@ -1,61 +1,127 @@
-.adjust{
-    display: grid;
-  grid-template-columns: repeat(2,1fr);
-    width: 85%;
-    margin: auto;
-    border: 1px solid black;
-    margin-top: 4%;
-    padding: 2%;
-}
-
-.image{
-    width: 90%;
-}
-
-.top{
+/* Defining the style to whole file */
+.container{
     display: flex;
-    justify-content: space-evenly;
-    text-align: center;
-    font-family: "Cera Pro", HelveticaNeue, "Helvetica Neue", HelveticaNeueRoman, HelveticaNeue-Roman, "Helvetica Neue Roman", TeXGyreHerosRegular, Helvetica, Tahoma, Geneva, Arial, sans-serif;
-    font-style: normal;
+    width: 100%;
+    padding: 7%;
+}
+
+/* styling to main big size product image file */
+.product_img{
+    max-width:700px ;
+    text-align: left;
+}
+
+/* styling buttom small product image container */
+.small_img{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    row-gap: 25px;
+    margin-bottom: 25px;
+}
+
+/* styling right side details of product  */
+.product_details{
+    max-width: 580px;
+    margin-left: 3.5%;
+    text-align: left;
+}
+
+/* styling 2nd line subdescription after nme  */
+.highlights{
+    color: rgb(104, 104, 104);
+}
+
+/* styling right side price text */
+.price span{
+    font-size: 19px;
+    font-weight: bolder;
+}
+
+/* des */
+.description p{
+    font-size: 15.2px;
+    line-height: 1.8;
+}
+/* styling right side container of price, qty, addtocart */
+.cart_box{
+    margin: 25px 0 25px 0;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+/* styling right side qty button  */
+.cart_box>select{
+    border: 2px solid rgb(173, 169, 169);
+    width: 52px;
+    height: 35px;
+}
+
+/* styling right side addtocart button  */
+.cart_box>button{
+    background-color: #f26226;
+    color: white;
+    font-size: 14.5px;
     font-weight: 500;
-    color:#303236
+    padding: 12px 45px;
+    border-radius: 2px;
 }
 
-.des{
-    width: 90%;
-    border: 0px solid green;
-    margin: auto;
-    margin-top: 8%;
-    padding: 2.5%;
+.cart_box>button:hover{
+    background-color: #f05310;
 }
-
- @media  (min-width: 320px) and (max-width: 900px) {
-    .adjust{
-        display: grid;
-      grid-template-columns: repeat(1,1fr);
-        width: 100%;
-        margin: auto;
-        border: 1px solid black;
-        margin-top: 4%;
-        padding: 2%;
+.tabs{
+    text-align: left;
+    font-size: 13.5px;
+    line-height: 2;
+}
+.guarantee{
+    color: blue;
+}
+.guarantee:hover{
+    border-bottom: 1px solid blue;
+}
+@media (max-width: 1075px) {
+    .small_img{
+        grid-template-columns: repeat(2, 1fr);
     }
-    .image{
-        width: 100%;
+    .product_details{
+        max-width: 400px;
+    }
+    .cart_box>button{
+        padding: 10px 35px;
     }
 }
-
-@media  (min-width: 901px) and (max-width: 1440px) {
-    .adjust{
-        display: grid;
-      grid-template-columns: repeat(2,1fr);
-        width: 100%;
-        margin: auto;
-        border: 1px solid black;
-        margin-top: 4%;
-        padding: 2%;
+@media (max-width: 800px) {
+    .container{
+        display: block;
+        justify-content: center;
     }
-    .image{
-        width: 80%;
+    .product_details{
+       margin: auto;
+    }
+}
+@media (max-width: 470px) {
+    .cart_box>button{
+        padding: 5px 5px;
+    }
+}
+@media (max-width: 400px) {
+    .cart_box>button{
+        font-size: 10px;
+    }
+    .cart_box{
+        margin: 25px 0 25px 0;
+        gap: 10px;
+    }
+}
+@media (max-width: 350px) {
+    .cart_box>button{
+        font-size: 10px;
+    }
+    .cart_box{
+        margin: 25px 0 25px 0;
+        gap: 10px;
     }
 }

@@ -1,13 +1,33 @@
-import { useToast } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { SocialFooter } from "../Components/SocialFooter";
 import { useFetch } from "../Components/Custom Hooks/useFetch";
-import Styles from "./Pantry.module.css";
+import { border, Skeleton, SkeletonCircle, SkeletonText } from "@chakra-ui/react";
+import styles from "./Pantry.module.css";
+import {
+  Heading,
+  Tab,
+  Tabs,
+  TabList,
+  TabPanel,
+  TabPanels,
+  useDisclosure,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalCloseButton,
+  ModalBody,
+  Image,
+  Box,
+  useToast,
+} from "@chakra-ui/react";
 
 const SingleKitchen = () => {
-
+  const { isOpen, onOpen, onClose } = useDisclosure(); //To open or close modal of small product img
   const [kitchen, setKitchen] = useState();
   const [quan, setQuan] = useState(1);
+  const [modalImg, setModalImg] = useState(""); //storing modal img link on clicking on particular image
+  const [isLoading, setIsLoading] = useState(true); //storing value for skeleton loading
   const { _id } = useParams();
 // console.log(_id)
   const fetchData = async () => {
@@ -24,6 +44,7 @@ const SingleKitchen = () => {
     );
     let data = await res.json();
     console.log(data);
+    setIsLoading(false);
     setKitchen(data.msg);
   } catch (err) {
     console.log(err);
@@ -63,57 +84,142 @@ const SingleKitchen = () => {
       isClosable: true,
     })
   }
+  function handleModalImg(imgLink) {
+    onOpen();
+    setModalImg(imgLink);
+  }
   
-  return (
-    <div className={Styles.adjust}>
-      <div>
-        <img
-          className={Styles.image}
-          src={kitchen?.img[0].subImage}
-          alt="KITCHEN 1"
-        />
-      </div>
-      <div>
-        <h2>{kitchen?.name}</h2>
-        <div className={Styles.top}>
-          <h2>Price ${kitchen?.price}</h2>
-          {/* <input
-            type="number"
-            value={quan}
-            style={{ width: "7%", height: "auto", textAlign: "center" }}
-          /> */}
-          <button
-            style={{
-              backgroundColor: "#f26226",
-              width: "25%",
-              padding: "2px",
-              border: "0px",
-              color: "white",
-              textAlign: "center",
-              height: "auto",
-              borderRadius: "3px",
-            }}
-            onClick={()=>{AddToCart(kitchen)}}
-            >
-            ADD TO BASKET
-          </button>
+  
+  if (isLoading) {
+    return (
+      <>
+        <Box padding="6" boxShadow="lg" bg="white">
+          <SkeletonText mt="4" noOfLines={4} spacing="4" skeletonHeight="2" />
+          <SkeletonText mt="4" noOfLines={4} spacing="4" skeletonHeight="2" />
+          <SkeletonText mt="4" noOfLines={4} spacing="4" skeletonHeight="2" />
+          <SkeletonText mt="4" noOfLines={4} spacing="4" skeletonHeight="2" />
+        </Box>
+      </>
+    );
+  } else {
+    return (
+      // Main container
+      <>
+        <div className={styles.container}>
+          {/* {product?.map((items) => ( */}
+          <>
+            <div className={styles.product_img}>
+              {/************************** Showing big image  ************/}
+              <img src={kitchen?.img[0].subImage} alt="Product" />
+              <br></br>
+
+              {/************** Showing all buttom small image *************/}
+              <div className={styles.small_img}>
+                {kitchen?.img.slice(1).map((img) => (
+                  <>
+                    <Image
+                      // onClick={onOpen}
+                      onClick={() => handleModalImg(img.subImage)}
+                      _hover={{ cursor: "pointer" }}
+                      m="auto"
+                      w="125px"
+                      h="120px"
+                      src={img.subImage}
+                      alt="Prodoct image"
+                    />
+                  </>
+                ))}
+
+                {/**************** To open a modal on clicking above small img **************/}
+                <Modal isOpen={isOpen} onClose={onClose}>
+                  <ModalOverlay />
+                  <ModalContent>
+                    <ModalCloseButton bg="#f9f9f9" borderRadius="25px" />
+                    <ModalBody p="4" m="0">
+                      <Image src={modalImg} w="100%" />
+                    </ModalBody>
+                  </ModalContent>
+                </Modal>
+              </div>
+            </div>
+
+            {/***************** Rigth side of product details ****************/}
+            <div className={styles.product_details}>
+              <div>
+                {/* Showing name */}
+                <Heading size="lg" mb="10px">
+                  {kitchen?.name}
+                </Heading>
+
+                {/******************** To show price, qty, addtocart btn ***********************/}
+                <div className={styles.cart_box}>
+                  <p className={styles.price}>
+                    <span>
+                      Price $<span>{kitchen?.price}</span>
+                    </span>
+                  </p>
+                  {/* <select onChange={(e) => setQty(e.target.value)}>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select> */}
+                  <button
+                    onClick={()=>{AddToCart(kitchen)}}
+                  >
+                    ADD TO BASKET
+                  </button>
+                </div>
+
+                {/* Showing Sub description after name */}
+                {/* <p className={styles.highlights}>{pantry?.des[0].subDes}</p> */}
+              </div>
+
+              {/****************** Long description ******************/}
+              <div className={styles.description}>
+                <p>{kitchen?.des[0].subDes}</p>
+                <br></br>
+
+                {/************ Tab Options ***********/}
+                <div className={styles.tabs}>
+                  <Tabs variant="enclosed" color="gray">
+                    <TabList>
+                      <Tab fontWeight="500">Product Details</Tab>
+                      <Tab fontWeight="500">Order & Shipping</Tab>
+                      <Tab fontWeight="500">Return Policy</Tab>
+                    </TabList>
+                    <TabPanels color="black" border="1px solid #e8edf3">
+                      <TabPanel>
+                        <li>Oven safe to 500 degrees Fahrenheit</li>
+                        <li>Dishwasher safe</li>
+                        <li>Hand-harvested and hand-sorted off the Oregon Coast</li>
+                        <li>Produced by Togiharu for Blue Apron</li>
+                      </TabPanel>
+                      <TabPanel>
+                        <li >
+                        Your credit card will be charged at time of purchase.
+                        </li>
+                        <li >
+                        Shipping is only available to the 48 contiguous United States and not available to PO Box addresses.
+                        </li>
+                        <li >Standard shipping takes 5-7 business days from ship date.Standard shipping takes 5-7 business days from ship date.</li>
+                      </TabPanel>
+                      <TabPanel>
+                        <p className={styles.tabs}>We accept returns (excluding food), and will provide a full refund for the price of the item. Items must be shipped back within 30 days of receipt in their original packaging and condition. To make a return, please email market@blueapron.com and we will provide you with the return address as well as any shipping instructions that may apply.</p>
+                      </TabPanel>
+                    </TabPanels>
+                  </Tabs>
+                </div>
+              </div>
+            </div>
+          </>
+          {/* ))} */}
         </div>
-        <div className={Styles.des}>
-          <h3>Description</h3>
-          <p>
-            {kitchen?.desc}
-          </p>
-          <h3>Product Details</h3>
-          <p>11" nonstick fry pan</p>
-          <p>00% recycled aluminum body and stainless-steel handle</p>
-          <p>100% PFOA-free, Stratanium nonstick cooking surface</p>
-          <p>For use on all stove-tops including induction</p>
-          <p>For use with metal utensils</p>
-          <p>Oven safe to 500 degrees Fahrenheit</p>
-        </div>
-      </div>
-    </div>
-  );
+        <SocialFooter />
+      </>
+    );
+  }
 };
 
 export default SingleKitchen;

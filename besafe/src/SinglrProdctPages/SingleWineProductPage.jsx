@@ -2,6 +2,12 @@ import React, { useEffect, useState } from "react";
 import styles from "./SingleWineProductPage.module.css";
 import { SocialFooter } from "../Components/SocialFooter";
 import { useParams } from "react-router-dom";
+import {
+  border,
+  Skeleton,
+  SkeletonCircle,
+  SkeletonText,
+} from "@chakra-ui/react";
 
 import {
   Heading,
@@ -11,6 +17,7 @@ import {
   TabPanel,
   TabPanels,
   useDisclosure,
+  Box,
   useToast,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
@@ -20,63 +27,85 @@ import { Link } from "react-router-dom";
 function SingleWineProductPage() {
   const [product, setProduct] = useState(); //paased custom obj to check UI
   const [qty, setQty] = useState(1); //storing selected qty for a product
+  const [isLoading, setIsLoading] = useState(true); //storing value for skeleton loading
   const { _id } = useParams();
-  const toast = useToast()
- // console.log(_id)
- useEffect(() => {
-  let fetchData = async () => {
-    try {
-      let res = await fetch(
-        `https://dark-red-goshawk-gown.cyclic.app/wines/${_id}`,
-        {
-          method: "GET",
-          headers: {
-            Authorization: localStorage.getItem("token"),
-            "Content-Type": "Application/json",
-          },
-        }
-      );
-      let data = await res.json();
-      console.log(data);
-      setProduct(data.msg);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-  fetchData();
-}, [_id]);
-// console.log(product);
-const AddToCart=async (product)=>{
-  let obj={name:product.name,img:product.img,price:product.price,username:localStorage.getItem("userName")}
-  console.log(obj)
- // console.log(product,localStorage.getItem("userName"))
-  let res=await fetch(`https://dark-red-goshawk-gown.cyclic.app/cart/addtocart`,{
-    method:"POST",
-    headers:{
-      Authorization:localStorage.getItem("token"),
-      "Content-type":"application/json"
-    },
-    body:JSON.stringify(obj)
-  })
+  const toast = useToast();
+  // console.log(_id)
+  useEffect(() => {
+    let fetchData = async () => {
+      try {
+        let res = await fetch(
+          `https://dark-red-goshawk-gown.cyclic.app/wines/${_id}`,
+          {
+            method: "GET",
+            headers: {
+              Authorization: localStorage.getItem("token"),
+              "Content-Type": "Application/json",
+            },
+          }
+        );
+        let data = await res.json();
+        console.log(data);
+        setIsLoading(false);
+        setProduct(data.msg);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchData();
+  }, [_id]);
+  // console.log(product);
+  const AddToCart = async (product) => {
+    let obj = {
+      name: product.name,
+      img: product.img,
+      price: product.price,
+      username: localStorage.getItem("userName"),
+    };
+    console.log(obj);
+    // console.log(product,localStorage.getItem("userName"))
+    let res = await fetch(
+      `https://dark-red-goshawk-gown.cyclic.app/cart/addtocart`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: localStorage.getItem("token"),
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(obj),
+      }
+    );
 
-  let ans=await res.json()
-  console.log(ans)
-  // alert(ans.msg)
-  toast({
-    title: "Add to Basket",
-    description: "You Can See Cart Now",
-    variant: "subtle",
-    status:'success',
-    position: 'top-right',
-    duration: 3000,
-    isClosable: true,
-  })
-}
-  return (
-    // Main container
-    <>
-      <div className={styles.container}>
-        {/* {product?.map((items) => ( */}
+    let ans = await res.json();
+    console.log(ans);
+    // alert(ans.msg)
+    toast({
+      title: "Add to Basket",
+      description: "You Can See Cart Now",
+      variant: "subtle",
+      status: "success",
+      position: "top-right",
+      duration: 3000,
+      isClosable: true,
+    });
+  };
+  if (isLoading) {
+    return (
+      <>
+        <Box padding="6" boxShadow="lg" bg="white">
+          <SkeletonText mt="4" noOfLines={4} spacing="4" skeletonHeight="2" />
+          <SkeletonText mt="4" noOfLines={4} spacing="4" skeletonHeight="2" />
+          <SkeletonText mt="4" noOfLines={4} spacing="4" skeletonHeight="2" />
+          <SkeletonText mt="4" noOfLines={4} spacing="4" skeletonHeight="2" />
+        </Box>
+      </>
+    );
+  } else {
+    return (
+      // Main container
+      <>
+        <div className={styles.container}>
+          {/* {product?.map((items) => ( */}
           <>
             <div className={styles.product_img}>
               {/************************** Showing big image  ************/}
@@ -89,7 +118,7 @@ const AddToCart=async (product)=>{
               <div>
                 {/* Showing name */}
                 <Heading size="lg" mb="10px">
-                {product?.name}
+                  {product?.name}
                 </Heading>
               </div>
 
@@ -107,12 +136,18 @@ const AddToCart=async (product)=>{
                   <option value="4">4</option>
                   <option value="5">5</option>
                 </select> */}
-                <button onClick={()=>{AddToCart(product)}}>ADD TO BASKET</button>
+                <button
+                  onClick={() => {
+                    AddToCart(product);
+                  }}
+                >
+                  ADD TO BASKET
+                </button>
               </div>
 
               {/****************** Long description ******************/}
               <div className={styles.description}>
-              {product?.des?.map((desc) => (
+                {product?.des?.map((desc) => (
                   <>
                     <p>{desc.subDes}</p>
                     <br></br>
@@ -120,7 +155,7 @@ const AddToCart=async (product)=>{
                 ))}
                 <p>{product?.listHead}</p>
                 <div>
-                {product?.listContent?.map((list) => (
+                  {product?.listContent?.map((list) => (
                     <>
                       <li>{list.content}</li>
                     </>
@@ -153,9 +188,10 @@ const AddToCart=async (product)=>{
                     >
                       <TabPanel>
                         <p>
-                          Collection includes {product?.pack} x {product?.milliliter}{" "}
-                          mL bottles (2/3 of a standard-size wine bottle)
-                          featuring the following wines:
+                          Collection includes {product?.pack} x{" "}
+                          {product?.milliliter} mL bottles (2/3 of a
+                          standard-size wine bottle) featuring the following
+                          wines:
                         </p>
                         <Link>
                           <li style={{ color: "#0f346c", fontWeight: "500" }}>
@@ -207,11 +243,12 @@ const AddToCart=async (product)=>{
               </div>
             </div>
           </>
-        {/* ))} */}
-      </div>
-      <SocialFooter />
-    </>
-  );
+          {/* ))} */}
+        </div>
+        <SocialFooter />
+      </>
+    );
+  }
 }
 
 export { SingleWineProductPage };
