@@ -5,7 +5,7 @@
  **Team Members:**<br/>
  **1.Akarsha Bhardwaj(Team Lead)**<br/>
  **2.RajKumar Pradhan**<br/>
- **3.Shubham Singh**<br/>
+ **3.Shubham Kumar**<br/>
  **4.Kiran Wankhade**<br/>
 
 This is the photos of the Bechef website. Bechef is an online Ecommerce Website which is providing high quality food products as well as easy to cook meals. From this website, users can Order food products cooked as well as raw and much more across the world.
