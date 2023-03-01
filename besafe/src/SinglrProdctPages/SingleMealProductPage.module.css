@@ -33,11 +33,15 @@
 }
 
 /* styling right side price text */
-.price{
-    font-size: 20px;
-    font-weight: 500;
+.price span{
+    font-size: 19px;
+    font-weight: bolder;
 }
-
+/* des */
+.description p{
+    font-size: 15.2px;
+    line-height: 1.8;
+}
 /* styling right side container of price, qty, addtocart */
 .cart_box{
     margin: 25px 0 25px 0;
