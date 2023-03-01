@@ -43,12 +43,11 @@ function Pantry() {
     pantry.sort((a, b) => {
       return a.price - b.price;
     });
-  } else if(sortby === "hl") {
+  } else if (sortby === "hl") {
     pantry.sort((a, b) => {
       return b.price - a.price;
     });
   }
-
 
   if (isLoading) {
     return (
@@ -64,40 +63,6 @@ function Pantry() {
   } else {
     return (
       <div className={styles.container}>
-
-         <div>
-            <Link className={styles.link} to="/">
-               Home{" "}
-            </Link>
-            <span className={styles.categoryName}>/ Pantry</span>
-            <Heading size="lg" mt="10px" color="#0F346C">
-               Pantry
-            </Heading>
-            <br></br>
-            <div className={styles.blueLine}></div>
-            <br></br>
-         </div>
-         <div className={styles.sort_filter}>
-            <select onClick={(e) => setSortby(e.target.value)}>
-               <option value="">Sort By Price</option>
-               <option value="lh">Low to High</option>
-               <option value="hl">High to Low</option>
-            </select>
-         </div>
-         <div className={styles.cardContainer}>
-            {pantry?.map((pantry) => (
-               <MealCard
-                  id={pantry._id}
-                  image={pantry.img[0].subImage}
-                  title={pantry.name}
-                  // desc={wine.subDes}
-                  price={pantry.price}
-               />
-            ))}
-         </div>
-         <br></br>
-         <br></br>
-
         <div>
           <Link className={styles.link} to="/">
             Home{" "}
@@ -130,7 +95,6 @@ function Pantry() {
         </div>
         <br></br>
         <br></br>
-
 
         {/* category */}
         <SelectCategory />
