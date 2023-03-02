@@ -12,7 +12,7 @@ This is the photos of the Bechef website. Bechef is an online Ecommerce Website 
 
 **To see the live site click the below link.**
 
-https://famous-phoenix-682490.netlify.app
+https://befchef.netlify.app/
 
 ## Tech Stack
 <p >
